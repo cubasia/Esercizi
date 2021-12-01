@@ -1,0 +1,95 @@
+<DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Lezione CSS</title>
+    <style>
+        body{
+            background-color: white;
+        }
+       .container{
+            margin: 10px;
+            
+        }
+        
+        .griglia{
+            display: grid;
+            grid-template-rows: repeat(6,90px);
+            grid-template-columns: repeat(4,130px);
+            grid-gap: 10px;
+            /* background-color: #2196F3; */
+            padding: 10px;
+
+        }
+        .result{
+             grid-column: span 4;
+            /* grid-column: 4;  */
+            /* grid-area: 1 /1 / 1/ 5; */
+            background-color: #424c52;
+            /* width: 130px; */
+            text-align:  right !important;
+            padding-right: 10px !important;
+            font-size: 50px !important;
+            padding-top: 12px !important;
+            color: white;
+            border: solid 1px black;
+            
+            
+        }
+        .equal{
+            grid-row: span 4;
+            background-color: #f77077;
+            padding-top: 140px !important;
+            font-size: 80px !important;
+            
+        }
+
+        .operatori{
+            background-color: #d2dce4;
+        }
+        .numeri{
+            background-color:#eff2f5;
+        }
+
+        .griglia > div {
+            text-align: center;
+            border: solid 1px ;
+            padding: 20px 0;
+            font-size: 30px;
+            
+        }
+        
+        
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="griglia">
+            <div class="result"><span > 0</span></div>
+            <div class="operatori">+</div>
+            <div class="operatori">-</div>
+            <div class="operatori">x</div>
+            <div class="operatori">%</div>
+            <div class="numeri">7</div>
+            <div class="numeri">8</div>
+            <div class="numeri">9</div>
+            <div class="equal">=</div>
+            <div class="numeri">4</div>
+            <div class="numeri">5</div>
+            <div class="numeri" >6</div>
+            <div class="numeri">1</div>
+            <div class="numeri">2</div>
+            <div class="numeri">3</div>
+            <div class="numeri">0</div>
+            <div class="numeri">.</div>
+            <div class="numeri">AC</div>
+    
+        </div>
+    </div>
+</body>
+
+</html>
