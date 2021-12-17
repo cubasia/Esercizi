@@ -1,0 +1,55 @@
+.container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.cerchietto {
+    width: 30px;
+    border-radius: 50%;
+    background-color: grey;
+    margin-left: auto;
+    margin-top: auto;
+}
+
+.rettangolo {
+    width: 221px;
+    height: 36px;
+    margin-left: 25px;
+}
+
+input {
+    width: 100%;
+}
+
+.smallrettangolo {
+    width: 25px;
+    height: 23px;
+    background-color: grey;
+}
+
+header {
+    width: 100%;
+    height: 55px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: khaki;
+}
+
+.divretta {
+    width: 183px;
+    height: 55px;
+    background-color: lavender;
+    margin-top: 21px;
+}
+
+nav {
+    background-color: grey;
+    height: 100%;
+    width: 266px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
