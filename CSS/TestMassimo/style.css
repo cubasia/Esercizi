@@ -1,11 +1,40 @@
+* {
+    margin: 0;
+}
+
+html,body {
+    width: 100%;
+    height: 100%;
+}
+
 .container {
     height: 100%;
     width: 100%;
     display: flex;
+    
 }
 
+header {
+    width: 100%;
+    height: 76px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: khaki;
+
+}
+.header {
+    width: 100%;
+    height: 76px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: khaki;
+
+}
 .cerchietto {
-    width: 30px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background-color: grey;
     margin-left: auto;
@@ -26,16 +55,10 @@ input {
     width: 25px;
     height: 23px;
     background-color: grey;
+
 }
 
-header {
-    width: 100%;
-    height: 55px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: khaki;
-}
+
 
 .divretta {
     width: 183px;
