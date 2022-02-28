@@ -1,0 +1,46 @@
+<html>
+
+<body>
+  <button onclick="Aggiungi()">Aggiungi</button>
+  <button onclick="Rimuovi()">Rimuovi</button>
+  <div id="container" style="display: flex; align-items: center;"></div>
+</body>
+
+</html>
+
+<script>
+  function Aggiungi() {
+
+    fetch("https://jsonplaceholder.typicode.com/todos").
+      then(response => response.json()).
+      then(data => inserisci(data))
+
+  }
+  function Rimuovi() {
+    let ul = document.getElementById('container')
+    ul.innerHTML = '';
+     
+  }
+  function inserisci(todos) {
+
+    let div = document.getElementById('container')
+
+    let todo = todos.find(item => item.id == 4)
+
+    var h2 = document.createElement("h2");
+    h2.appendChild(document.createTextNode(todo.title));
+
+    var inputEle = document.createElement("input");
+    inputEle.setAttribute("type", "checkbox")
+    inputEle.setAttribute("type", "checkbox")
+    inputEle.setAttribute("checked", todo.completed)
+
+    
+
+
+    div.append(h2)
+    div.append(inputEle)
+
+  }
+
+</script>

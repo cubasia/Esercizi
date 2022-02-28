@@ -1,0 +1,62 @@
+<html >
+  <body onload='initForm()'>
+    <div id="container">
+      <h2>Person's Form</h2>
+      <form id="person-form">
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
+
+<script>
+const form = document.getElementById('person-form')
+function initForm(){
+  
+  let firstName = document.createElement("input");
+    firstName.setAttribute("type", "text");
+    firstName.setAttribute("id", "firstName");
+    firstName.setAttribute("placeholder", "insert your name");
+
+  let lastName = document.createElement("input");
+    lastName.setAttribute("type", "text");
+    lastName.setAttribute("id", "lastName");
+    lastName.setAttribute("placeholder", "insert your last name");
+
+  let age = document.createElement("input");
+    age.setAttribute("type", "number");
+    age.setAttribute("id", "age");
+    age.setAttribute("placeholder", "insert your age");
+
+  // const butt = document.getElementsByTagName('button')[0]
+  // form.insertBefore(firstName, butt)
+  // form.insertBefore(lastName,butt)
+  // form.insertBefore(age,butt)
+
+  // form.prepend(age)
+  // form.prepend(lastName)
+  // form.prepend(firstName)
+
+  form.prepend(firstName,lastName,age)
+  
+}
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+   
+    let firstName = document.getElementById("firstName").value
+    let lastName = document.getElementById("lastName").value
+    let age= document.getElementById("age").value
+    
+    if(!(firstName && lastName && age)) return
+
+    let payload = {
+      firstName,
+      lastName,
+      age
+    };
+    console.log(payload)
+    
+  })
+  
+</script>

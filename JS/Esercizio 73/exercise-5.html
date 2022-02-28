@@ -1,0 +1,49 @@
+<html>
+  <body>
+    <div id="container">
+      <h2>Person's List</h2>
+      <table id="person-table" >
+        <tbody></tbody>
+      </table>
+      <button id="add-row" onclick="addRow()">Add row</button>
+    </div>
+  </body>
+</html>
+
+<script>
+function addRow()
+{
+  
+    let table=document.getElementById('person-table')
+    table.border="solid 1 px"
+    let rowCount =table.rows.length;
+  //sfrutta i metodi piuttosto che creare gli elementi manualmente
+    const APPEND_ROW=-1
+    let row = table.insertRow(APPEND_ROW)
+   
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+   
+    cell1.innerHTML = `Row ${rowCount}`;
+    cell2.innerHTML = `Row ${rowCount}`; 
+    cell3.innerHTML = `Row ${rowCount}`; 
+   
+  // let tr=document.createElement('tr')
+  // let tdfirstName=document.createElement('td')
+  // let tdlastName=document.createElement('td')
+  // let tdage=document.createElement('td')
+  // var text1 = document.createTextNode(`Row ${rowCount}`);
+  // var text2 = document.createTextNode(`Row ${rowCount}`);
+  // var text3 = document.createTextNode(`Row ${rowCount}`);
+  // tdfirstName.appendChild(text1)
+  // tdlastName.appendChild(text2)
+  // tdage.appendChild(text3)
+  // tr.appendChild(tdfirstName)
+  // tr.appendChild(tdlastName)
+  // tr.appendChild(tdage)
+  // table.appendChild(tr)
+  // }
+}
+
+</script>

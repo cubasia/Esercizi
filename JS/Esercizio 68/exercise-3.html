@@ -1,0 +1,57 @@
+<html>
+  <body>
+    <div id="container">
+      <form id="todo-form">
+        <div>
+          <label>Title</label>
+          <input type="text" id="todo-title" />
+        </div>
+        <div>
+          <label>Completed</label>
+          <input type="checkbox" id="todo-completed" value=true />
+        </div>
+
+        <button type="submit" id="submit-todo">Crea un Post</button>
+      </form>
+    </div>
+  </body>
+</html>
+
+<script>
+  //per farlo funzionare occorre metter un id all'elemento form
+  const form=document.getElementById('todo-form')
+  const TITLE_REQUIRED='Please, enter a title'
+  
+  form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      let titleValue = document.getElementById("todo-title").value
+      let completed = document.getElementById("todo-completed")
+      //potevo anche non usar le variabili
+      let payload = {
+      'title': titleValue,
+      'completed': completed.checked
+    };
+      if (!titleValue) alert(TITLE_REQUIRED)
+      else {
+        
+        try {
+
+        fetch(' https://jsonplaceholder.typicode.com/posts', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        }).then(res => res.json())
+          .then(res => console.log(res))  //restituisce nel log l'elemento inserito
+          }
+          catch (err){
+            alert(err)
+          }
+
+      }
+    })
+    
+</script>

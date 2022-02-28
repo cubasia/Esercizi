@@ -1,0 +1,80 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const baseUrltags = "https://cataas.com/api/tags"
+        const baseUrl = "https://cataas.com"
+        const prefixBaseUrlImage = "https://cataas.com/cat/"
+        const suffixBaseUrlImage = "?json=true"
+        let Cats = []
+        
+        
+        async function Loadcats() {
+            //console.log("sono qui")
+            await fetch(baseUrltags).
+                then(response => response.json())
+                .then(data => Cats = data)
+           // console.log(Cats.length)
+        const Ele = document.getElementById('tags')    
+            
+            for (let i =4; i < 10; i++) {
+                
+                let childnode= document.createElement('option')
+                childnode.value= Cats[i]
+                childnode.innerHTML= Cats[i]
+               // childnode.addEventListener("select",CaricaImage)
+                Ele.appendChild(childnode)
+            }
+            for (let i = 14; i < 20; i++) {
+             
+                let childnode = document.createElement('option')
+                childnode.value = Cats[i]
+                childnode.innerHTML = Cats[i]
+                //childnode.addEventListener("select", CaricaImage)
+                Ele.appendChild(childnode)
+            }
+
+            Ele.addEventListener("change", CaricaImage, false)
+
+        }
+   async function CaricaImage(e) 
+   {
+        const Ele = document.getElementById('tags')
+        
+        const url= prefixBaseUrlImage + e.target.value + suffixBaseUrlImage
+        await fetch(url)
+         .then(response => response.json())
+         .then(data => {
+                let childnode = document.createElement('hr')
+                document.body.appendChild(childnode)
+
+                 childnode = document.createElement('img')
+                 childnode.src = baseUrl+data.url
+                 childnode.alt= e.target.value
+                 
+                 document.body.appendChild(childnode)
+                 
+         })
+         
+    }
+    </script>
+</head>
+
+<body onload="Loadcats()">
+
+    
+    <h1>Tags</h1>
+    <label for="tags">Choose a cat:</label>
+    <select id="tags">
+        
+    </select>
+    
+    
+
+</body>
+
+</html>

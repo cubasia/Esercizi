@@ -1,0 +1,54 @@
+<html>
+  <body>
+    <div id="container">
+      <button type="button" id="fetch-post" onclick="fetchPost()">Fetch Post</button>
+      <button type="button" id="save-post" onclick="savePost()">Save Post on Local Storage</button>
+      <!-- <p id="Storage">noStorage</p> -->
+    </div>
+  </body>
+</html>
+
+<script>
+  var fetchData ;
+  function fetchPost(){
+    
+        try 
+          {
+            
+            fetch("https://jsonplaceholder.typicode.com/posts/1").
+            then(response=>response.json()).
+            then(response =>{
+              fetchData=response;
+            });
+            }
+        catch(err)
+        {
+           console.log(err);
+        }
+  }
+  function savePost() {
+      try {
+        window.localStorage.clear()
+        //primo metodo
+        // for (i = 0; i < Object.keys(fetchData).length; i++) {
+        //     p = Object.keys(fetchData)[i];
+        //     window.localStorage, setItem(p, fetchData[p])
+        //    }
+        //secondo metodo
+        localStorage.setItem('post',JSON.stringify(fetchData))
+        //updateStorage()          
+      }
+      catch (err) {
+        console.log(err);
+      }
+    }
+
+    // function updateStorage(){
+    //   let values= [],keys= Object.keys(localStorage),i = keys.length;
+    //   while (i--)
+    //   {
+    //     values.push( localStorage.getItem(keys[i]))
+    //   }
+    //   document.getElementById('Storage').textContent = values
+    // }
+</script>
