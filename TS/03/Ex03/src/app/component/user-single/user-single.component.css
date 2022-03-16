@@ -3,3 +3,11 @@ span
   color:red;
   font-weight: bold;
 }
+table {
+  table-layout: fixed;
+
+}
+
+td {
+  width: 10%;
+}

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output,EventEmitter } from '@angular/core';
 import { ShortUser } from 'src/app/module/user-detail/user-detail.module';
 
 @Component({
@@ -6,12 +6,15 @@ import { ShortUser } from 'src/app/module/user-detail/user-detail.module';
   templateUrl: './user-single.component.html',
   styleUrls: ['./user-single.component.css'],
 })
-export class UserSingleComponent implements OnInit {
+export class UserSingleComponent {
   @Input()
   utente?: ShortUser;
   @Input()
   indice?: number;
+  @Output() cancellaEvent = new EventEmitter<number>();
   constructor() {}
 
-  ngOnInit(): void {}
+  cancella() {
+    this.cancellaEvent.emit(this.indice);
+  }
 }

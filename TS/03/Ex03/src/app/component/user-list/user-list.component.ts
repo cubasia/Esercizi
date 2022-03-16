@@ -5,7 +5,7 @@ import { USERS,ShortUser } from 'src/app/module/user-detail/user-detail.module';
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.css'],
 })
-export class UserListComponent implements OnInit {
+export class UserListComponent  {
 
   items?: ShortUser[] = USERS.map(element => {
         let _short: ShortUser = {
@@ -19,5 +19,7 @@ export class UserListComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  Cancella(indice: number): void {
+    this.items?.splice(indice,1)
+  }
 }
