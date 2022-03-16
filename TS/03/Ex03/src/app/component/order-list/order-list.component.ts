@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { userOrder } from 'src/app/module/i-user-order/i-user-order.module';
-import { ShortUser } from 'src/app/module/user-detail/user-detail.module';
+import { Role, ShortUser } from 'src/app/module/user-detail/user-detail.module';
 @Component({
   selector: 'app-order-list',
   templateUrl: './order-list.component.html',
@@ -12,6 +12,7 @@ export class OrderListComponent implements OnInit {
     eta: 25,
     citta: 'Roma',
     foto: 'https://bit.ly/3yRngEP',
+    ruolo:Role.ADMIN
   };
   items = [
     {

@@ -1,5 +1,5 @@
 import { Component, Input, Output,EventEmitter } from '@angular/core';
-import { ShortUser } from 'src/app/module/user-detail/user-detail.module';
+import { ShortUser,Role } from 'src/app/module/user-detail/user-detail.module';
 
 @Component({
   selector: 'app-user-single',
@@ -12,9 +12,24 @@ export class UserSingleComponent {
   @Input()
   indice?: number;
   @Output() cancellaEvent = new EventEmitter<number>();
-  constructor() {}
+
+  constructor() { }
 
   cancella() {
     this.cancellaEvent.emit(this.indice);
+  }
+
+  setStyles() {
+    switch (this.utente?.ruolo)
+      {
+  case Role.STAFF:
+     return 'borderStaff'
+  case Role.ADMIN:
+     return 'borderAdmin'
+  case Role.MANAGER:
+        return 'borderManager'
+      default:
+        return 'borderStaff';
+    }
   }
 }

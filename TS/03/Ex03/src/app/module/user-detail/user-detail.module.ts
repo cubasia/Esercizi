@@ -14,6 +14,7 @@ export interface ShortUser {
   generalita: string;
   eta: number;
   citta: string;
+  ruolo: Role
 }
 
 export interface userDetail {

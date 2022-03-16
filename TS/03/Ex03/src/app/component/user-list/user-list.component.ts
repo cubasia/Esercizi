@@ -13,6 +13,7 @@ export class UserListComponent  {
           generalita: element.name + ' ' + element.surname,
           eta: element.age,
           citta: element.address.city,
+          ruolo: element.role
         };
         return _short
   });

@@ -11,3 +11,13 @@ table {
 td {
   width: 10%;
 }
+
+.borderStaff{
+    outline: thin solid green
+}
+.borderAdmin{
+    outline: medium dashed  blue
+}
+.borderManager{
+    outline: thick dotted violet
+}
