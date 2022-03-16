@@ -10,6 +10,7 @@ import { OrderContainerComponent } from './component/order-container/order-conta
 import { OrderListComponent } from './component/order-list/order-list.component';
 import { OrderSingleComponent } from './component/order-single/order-single.component';
 import { OrderDetailComponent } from './component/order-detail/order-detail.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { OrderDetailComponent } from './component/order-detail/order-detail.comp
     OrderDetailComponent,
   ],
   imports: [BrowserModule],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
