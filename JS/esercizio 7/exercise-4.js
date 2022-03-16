@@ -1,9 +1,21 @@
-function nicknameMap(persons) {
-  let nick = []
-  for (i = 0; i < persons.length; i++){
-    nick.push(`${persons[i].name}-${persons[i].age}`);
+// implementare, tramite blocchi condizionali e cicli,
+//   la funzione nicknameMap, la quale, dato un array di persone,
+//     crea un array di nickname.Il nickname deve essere formato nel seguente modo: <name>-<age>
+
+//scrivere la funzione funzione attraverso l'uso si IF e FOR 
+//ha in input un array di oggetti che rapprentano le persone
+//restituisci un output un altro array di elementi chiamati nickname fatti cosi
+//proprietà name unita al carattere - unita alla proprietà age
+// per ogni elemento dell'array di input
+
+function nicknameMap(personsnick) {
+  let nick = [] //output
+
+  for (let i = 0; i < personsnick.length; i++){
+    nick.push(personsnick[i].name+"-"+personsnick[i].age)
   }
-  return nick;
+
+  return nick
 }
 
 const persons = [
@@ -18,6 +30,8 @@ const persons = [
   { name: 'Sandra', age: 34 },
   { name: 'Alice', age: 28 }
 ];
+
+//Paul-16
 
 const nicknames = nicknameMap(persons);
 console.log(persons);

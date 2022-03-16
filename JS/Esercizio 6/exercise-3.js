@@ -1,53 +1,46 @@
+// Implementare, tramite blocchi condizionali e cicli, la funzione adultFilter,
+//   la quale, dato un array di persone,
+//     filtra e restituisce soltanto coloro che sono maggiorenni
 
-function adultFilter(persons) {
-  // PREMESSO CHE il miglior modo sarebbe usare filter
-  // return per=sons.flter (item => item.age >17)
-  let risultato = [];
-  for (i = 0; i < persons.length; i++){
-    if (persons[i].age > 17)
-       risultato.push(persons[i])
+//scrivere la funzione adultfilter usando IF e FOR
+//ha come parametro un array di oggetti che hanno una proprietà nome e una proprietà age
+//Noi vogliamo che si testi per ogni elemento dell'array di un input la proprietà age che deve essere maggiore di 17
+// se la proprietà ha un valore maggiore di 17 allora uso un array per salvarmi l'elemento
+//altrimenti non faccio niente
+
+
+function adultFilter(personsP) {
+  let maggiorenni = [] //output
+  for (let i = 0; i < personsP.length;i++) {
+    if (personsP[i].age < 18) {
+         maggiorenni.push(personsP[i]); 
+      }
+  }
+
+  return maggiorenni
+  
   }
   
-  return risultato;
-}
-function adultFilter2(persons) {
-  // PREMESSO CHE il miglior modo sarebbe usare filter
-  // return per=sons.flter (item => item.age >17)
+  
 
-  let k=0
-
-  while (k < persons.length) {
-    if (persons[k].age < 18) persons.splice(k, 1);
-    else k++
-    
-  }
-
-
-  return persons;
-}
 
 const persons = [
-  { name: 'Paul', age: 16 },
-  { name: 'George', age: 17 },
-  { name: 'Lucas', age: 21 },
-  { name: 'Marco', age: 32 },
-  { name: 'Peter', age: 18 },
-  { name: 'Carl', age: 13 },
-  { name: 'Simon', age: 24 },
-  { name: 'Mark', age: 15 },
-  { name: 'Sandra', age: 34 },
-  { name: 'Alice', age: 28 }
+  { name: "Paul", age: 16 }, //index 0
+  { name: "George", age: 17 }, //index 1
+  { name: "Lucas", age: 21 }, //index 2
+  { name: "Marco", age: 32 },
+  { name: "Peter", age: 18 },
+  { name: "Carl", age: 13 },
+  { name: "Simon", age: 24 },
+  { name: "Mark", age: 15 },
+  { name: "Sandra", age: 34 },
+  { name: "Alice", age: 28 },
 ];
 
-const persons2 = [
-  { name: 'Paul', age: 16 },
-  { name: 'George', age: 17 },
-  { name: 'Lucas', age: 21 }]
 
 const adults = adultFilter(persons);
 console.log(persons);
 console.log(adults);
 
-const adults2 = adultFilter2(persons2);
-console.log(adults2);
+
 
