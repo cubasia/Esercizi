@@ -50,9 +50,9 @@
     </tr>
     <tr>
       <td>Image</td>
-      <td *ngIf="user.picture=='';else imageON">Missing Image</td>
+      <td *ngIf="user.profilePhotoUrl=='';else imageON">Missing Image</td>
       <ng-template #imageON>
-        <td><img src="{{user.picture}}" alt="gatto"></td>
+        <td><img width="100px" src="{{user.profilePhotoUrl}}" alt="gatto"></td>
       </ng-template>
     </tr>
     <tr>

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ShortUser } from 'src/app/module/user-detail/user-detail.module';
 
 @Component({
   selector: 'app-user-single',
