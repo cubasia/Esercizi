@@ -8,7 +8,9 @@ import { ShortUser } from 'src/app/module/user-detail/user-detail.module';
 })
 export class UserSingleComponent implements OnInit {
   @Input()
-  utente?: string;
+  utente?: ShortUser;
+  @Input()
+  indice?: number;
   constructor() {}
 
   ngOnInit(): void {}
