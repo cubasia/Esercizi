@@ -1,0 +1,16 @@
+<table >
+  <tr [ngClass]="{
+   'borderStaff': utente?.ruolo =='staff',
+   'borderAdmin': utente?.ruolo =='admin',
+   'borderManager': utente?.ruolo =='manager'
+  }">
+
+    <td>{{indice}}</td>
+    <td>  <img  [src]="utente?.foto" alt=""></td>
+    <td>{{utente?.generalita}}</td>
+    <td>{{utente?.citta}}</td>
+    <td><button (click)="cancella()">Delete</button></td>
+
+  </tr>
+  {{utente?.ruolo}}
+</table>

@@ -1,0 +1,28 @@
+span
+{
+  color:red;
+  font-weight: bold;
+}
+table {
+  table-layout: fixed;
+  text-align: center;
+
+}
+
+td {
+  width: 10%;
+}
+
+.borderStaff{
+    outline: thin solid green
+}
+.borderAdmin{
+    outline: medium dashed  blue
+}
+.borderManager{
+    outline: thick dotted violet
+}
+img
+{
+  width:100px 
+}

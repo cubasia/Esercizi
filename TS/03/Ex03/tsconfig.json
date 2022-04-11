@@ -3,6 +3,20 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "paths": {
+      "@models/*": ["src/app/models/*"],
+      "@models": ["src/app/models/index"],
+      "@core/*": ["src/app/core/*"],
+      "@core": ["src/app/core/index"],
+      "@shared/*": ["src/app/shared/*"],
+      "@shared": ["src/app/shared/index"],
+      "@utils/*": ["src/app/utils/*"],
+      "@utils": ["src/app/utils/index"],
+      "@data/*": ["src/app/entities/*"],
+      "@data": ["src/app/entities/index"],
+      "@components/*": ["src/app/component/*"],
+      "@components": ["src/app/component/index"],
+    },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -28,5 +42,6 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
+
   }
 }

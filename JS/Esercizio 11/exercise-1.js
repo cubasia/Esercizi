@@ -6,10 +6,22 @@ const log = function (value) {
   console.log(value);
 }
 
-log(sum(2, 5));
+let hello = function () {
+  return "Hello World!";
+}; 
 
-const sum2 = (a, b)=>{return a + b}
+let hello = () => {
+  return "Hello World!";
+}; 
 
-const log2 = (a) => console.log(a)
+const sum = (a, b) => { return a + b }
 
-log2(sum2(2,5))
+const log = (value) => {
+  console.log(value);
+}
+  
+const sommatoria=function (a, b, c){
+  return a+b+c
+}
+
+const sommatoria = ( a,b,c) => a+b+c
