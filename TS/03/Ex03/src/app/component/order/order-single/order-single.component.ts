@@ -6,8 +6,7 @@ import { userOrder } from '@models';
   styleUrls: ['./order-single.component.css'],
 })
 export class OrderSingleComponent implements OnInit {
-  @Input()
-  ordine?: userOrder;
+  @Input() ordine!: userOrder;
 
   constructor() {}
 

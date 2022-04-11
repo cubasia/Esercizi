@@ -15,6 +15,10 @@
       "@utils": ["src/app/utils/index"],
       "@data/*": ["src/app/entities/*"],
       "@data": ["src/app/entities/index"],
+      "@components/*": ["src/app/component/*"],
+      "@components": ["src/app/component/index"],
+      "@mockups/*": ["src/mock-up/*"],
+      "@mockups": ["src/mock-up/index"]
     }
   },
   "files": [

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import {
   UserContainerComponent,
@@ -10,9 +9,9 @@ import {
   OrderContainerComponent,
   OrderSingleComponent,
   OrderDetailComponent,
-  OrderListComponent,
+  OrderListComponent
 } from '@components';
-import { DatePipe } from '@angular/common';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +26,7 @@ import { DatePipe } from '@angular/common';
     OrderDetailComponent,
   ],
   imports: [BrowserModule],
-  providers: [DatePipe],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

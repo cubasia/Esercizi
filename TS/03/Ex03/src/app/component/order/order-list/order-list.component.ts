@@ -8,8 +8,8 @@ import { Role, ShortUser, userOrder } from '@models';
 })
 export class OrderListComponent implements OnInit {
   @Input() testuser!: ShortUser;
+  @Input() items!: userOrder[];
 
-  
   constructor() {}
 
   ngOnInit(): void {}

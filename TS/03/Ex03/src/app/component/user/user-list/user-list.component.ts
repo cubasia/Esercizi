@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShortUser } from '@models';
-import { USERS } from 'src/Mock-up/users.mock-up';
+import { USERS} from '@mockups';
 
 @Component({
   selector: 'app-user-list',
@@ -9,7 +9,7 @@ import { USERS } from 'src/Mock-up/users.mock-up';
 })
 export class UserListComponent  {
 
-  items?: ShortUser[] = USERS.map(element => {
+  items: ShortUser[] = USERS.map(element => {
         let _short: ShortUser = {
           foto: element.profilePhotoUrl,
           generalita: element.name + ' ' + element.surname,

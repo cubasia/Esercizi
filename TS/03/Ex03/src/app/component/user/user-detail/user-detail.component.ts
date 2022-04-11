@@ -1,6 +1,6 @@
-import { DatePipe} from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { USERS } from 'src/Mock-up/users.mock-up';
+
+import { Component, OnInit,Input } from '@angular/core';
+import { userDetail } from '@models';
 
 @Component({
   selector: 'app-user-detail',
@@ -8,14 +8,12 @@ import { USERS } from 'src/Mock-up/users.mock-up';
   styleUrls: ['./user-detail.component.css'],
 })
 export class UserDetailComponent implements OnInit {
-  user = USERS[0]
+  @Input() user!: userDetail
+
   isVisibile = false
   Ale="Alessandra"
-  constructor(public datepipe: DatePipe) {}
+  constructor() {}
 
   ngOnInit(): void {}
 
-  trasformDate(cosa: Date) {
-    return this.datepipe.transform(cosa, 'dd MMM yyyy');
-  }
 }
