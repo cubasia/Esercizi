@@ -1,5 +1,5 @@
 import { Component, Input, Output,EventEmitter } from '@angular/core';
-import { ShortUser,Role } from '@models';
+import { ShortUser } from '@models';
 
 @Component({
   selector: 'app-user-single',
@@ -11,12 +11,16 @@ export class UserSingleComponent {
   utente?: ShortUser;
   @Input()
   indice?: number;
-  @Output() cancellaEvent = new EventEmitter<number>();
+  @Output() cancellaUserEvent = new EventEmitter<number>();
+  @Output() vediUserEvent = new EventEmitter<number>();
 
   constructor() { }
 
   cancella() {
-    this.cancellaEvent.emit(this.indice);
+    this.cancellaUserEvent.emit(this.indice);
+  }
+  view() {
+    this.vediUserEvent.emit(this.indice);
   }
 
 }

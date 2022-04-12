@@ -2,7 +2,9 @@
 <ul>
 
   <li *ngFor="let item of items;let i=index" >
-   <app-user-single [utente]="item" [indice]="i" (cancellaEvent)="Cancella($event)"></app-user-single>
+   <app-user-single [utente]="item" [indice]="i" (cancellaUserEvent)="Cancella($event)"
+    (vediUserEvent)="viewItem($event)">
+   </app-user-single>
   </li>
   <li *ngIf="items?.length==0">
     <span> Non sono Presenti Utenti </span>

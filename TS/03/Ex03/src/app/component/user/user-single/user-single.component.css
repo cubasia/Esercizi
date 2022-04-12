@@ -6,13 +6,10 @@ span
 table {
   table-layout: fixed;
   text-align: center;
-
 }
-
 td {
   width: 10%;
 }
-
 .borderStaff{
     outline: thin solid green
 }
@@ -24,5 +21,13 @@ td {
 }
 img
 {
-  width:100px 
+  width:100px
+}
+div
+{
+  display: flex;
+  flex-direction: column;
+}
+button{
+margin: 5px
 }
