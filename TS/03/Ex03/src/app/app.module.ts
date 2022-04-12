@@ -4,6 +4,10 @@ import { AppComponent } from './app.component';
 import {
   UserContainerComponent, UserListComponent, UserSingleComponent, UserDetailComponent,
   OrderContainerComponent,  OrderSingleComponent,  OrderDetailComponent,  OrderListComponent} from '@components';
+import { AppRoutingModule } from './app-routing.module';
+import { MaterialModule } from './module/materials';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NotFoundComponent } from './component/not-found/not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,8 +19,10 @@ import {
     OrderListComponent,
     OrderSingleComponent,
     OrderDetailComponent,
+    NotFoundComponent,
   ],
-  imports: [BrowserModule],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule,
+  MaterialModule],
   providers: [],
   bootstrap: [AppComponent],
 })

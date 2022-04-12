@@ -5,12 +5,20 @@
    'borderManager': utente?.ruolo =='manager'
   }">
 
-    <td>{{indice}}</td>
-    <td>  <img  [src]="utente?.foto" alt=""></td>
-    <td>{{utente?.generalita}}</td>
-    <td>{{utente?.citta}}</td>
-    <td><button (click)="cancella()">Delete</button></td>
+    <td> {{indice}}</td>
+    <td >  <img  [src]="utente?.foto" alt=""></td>
+    <td >{{utente?.generalita}}</td>
+    <td >{{utente?.citta}}</td>
+    <td>
+      <div>
+      <button (click)="cancella()">Delete</button>
+      <button (click)="view()">view</button>
+      </div>
+      </td>
+    </tr>
 
-  </tr>
+
+
+
   {{utente?.ruolo}}
 </table>

@@ -6,3 +6,5 @@ export { UserContainerComponent }  from "./user/user-container/user-container.co
 export { UserDetailComponent }     from "./user/user-detail/user-detail.component";
 export { UserListComponent }       from "./user/user-list/user-list.component";
 export { UserSingleComponent }     from "./user/user-single/user-single.component";
+export { NotFoundComponent }       from "./not-found/not-found.component";
+

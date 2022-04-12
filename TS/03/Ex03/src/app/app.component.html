@@ -1,8 +1,19 @@
+<nav mat-tab-nav-bar  [tabPanel]="tabPanel">
+  <a mat-tab-link *ngFor="let link of links" (click)="activeLink = link"
+   [active]="activeLink == link" [routerLink]="link"> {{link | uppercase}} </a>
+  <a mat-tab-link disabled>Disabled Link</a>
+</nav>
+<mat-tab-nav-panel #tabPanel>
+  <router-outlet></router-outlet>
+</mat-tab-nav-panel>
+
+<!--
 <div class="container">
+
   <div class="userContainer">
       <app-user-container></app-user-container>
   </div>
   <div class=orderContainer>
     <app-order-container></app-order-container>
   </div>
-</div>
+</div> -->
