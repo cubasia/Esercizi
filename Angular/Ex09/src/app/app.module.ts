@@ -5,18 +5,26 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ShowCounterComponent } from './components/show-counter/show-counter.component';
 import { EditCounterComponent } from './components/edit-counter/edit-counter.component';
-
+import { ShopComponent } from './components/shop/shop.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from 'src/app/module/components';
 @NgModule({
   declarations: [
     AppComponent,
     ShowCounterComponent,
-    EditCounterComponent
+    EditCounterComponent,
+    ShopComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

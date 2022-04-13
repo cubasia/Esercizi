@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { CounterService } from 'src/app/services/counter.service';
+import { CounterService } from 'src/app/services/counter/counter.service';
 
 
 @Component({
