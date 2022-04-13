@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ShowCounterComponent } from './components/show-counter/show-counter.component';
@@ -9,12 +9,14 @@ import { ShopComponent } from './components/shop/shop.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from 'src/app/module/components';
+import { ShowApiComponent } from './components/show-api/show-api.component';
 @NgModule({
   declarations: [
     AppComponent,
     ShowCounterComponent,
     EditCounterComponent,
     ShopComponent,
+    ShowApiComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,8 +25,10 @@ import { MaterialModule } from 'src/app/module/components';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    HttpClientModule,
+    HttpClientJsonpModule,
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
