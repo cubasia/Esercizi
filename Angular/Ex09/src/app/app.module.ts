@@ -10,6 +10,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from 'src/app/module/components';
 import { ShowApiComponent } from './components/show-api/show-api.component';
+import { ShowJokeComponent } from './components/show-joke/show-joke.component';
+import { JokeContainerComponent } from './components/joke-container/joke-container.component';
+import { ShowJokedislikeComponent } from './components/show-jokedislike/show-jokedislike.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,6 +20,9 @@ import { ShowApiComponent } from './components/show-api/show-api.component';
     EditCounterComponent,
     ShopComponent,
     ShowApiComponent,
+    ShowJokeComponent,
+    JokeContainerComponent,
+    ShowJokedislikeComponent,
   ],
   imports: [
     BrowserModule,

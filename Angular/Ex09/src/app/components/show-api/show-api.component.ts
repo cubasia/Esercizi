@@ -27,9 +27,12 @@ export class ShowApiComponent implements OnInit {
   displayedColumns = ['Index', 'NomeApi', 'Name', 'Description', 'Path'];
   Tabledatasource: API[] = [];
   datasource = new MatTableDataSource(this.Tabledatasource);
-  pageOptions = [5,10,15]
-  ngOnInit(): void {
+  pageOptions = [5, 10, 15]
+    ngOnInit(): void {
     this.callService();
+
+   
+
 
   }
 
