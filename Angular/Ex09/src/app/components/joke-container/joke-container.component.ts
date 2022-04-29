@@ -28,7 +28,7 @@ const jokeObservale2: Observable<JOKE> = of(fakeJoke);
 })
 export class JokeContainerComponent implements AfterViewInit {
   constructor(private httpService: HttpclientService) {
-    
+
   }
   @ViewChild('pause', { read: ElementRef })
   buttonStop!: ElementRef;
@@ -43,7 +43,8 @@ export class JokeContainerComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
 
-    const interval$ = interval(5000).pipe(map((a) => 1));
+    const interval$ = interval(5000).pipe(
+      startWith(0),map((a) => 1));
     const pause$ = fromEvent(this.buttonStop.nativeElement, 'click').pipe(
       map((a: any) => false)
     );
