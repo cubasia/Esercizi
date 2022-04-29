@@ -40,7 +40,7 @@
     </mat-card-actions>
   </mat-card>
 <div style="margin-bottom: 20px;">
-  <app-show-joke [likeJokeArray]="joeLikeArray" (delLike)="movLike($event)"></app-show-joke>
+  <app-show-joke [likeJokeArray]="joeLikeArray" (movLike)="movLike($event)" (delLike)="delLike($event)"></app-show-joke>
 </div>
-<app-show-jokedislike [dislikeJokeArray]="joeDislikeArray" (delDislike)="movDislike($event)"></app-show-jokedislike>
+<app-show-jokedislike [dislikeJokeArray]="joeDislikeArray" (delDislike)="delDislike($event)" (movDislike)="movDislike($event)"></app-show-jokedislike>
 </div>

@@ -10,9 +10,13 @@ import { JOKE } from 'src/app/model/joke-interface';
 export class ShowJokeComponent implements OnInit {
   @Input() likeJokeArray!: JOKE[];
   @Output() delLike = new EventEmitter<JOKE>();
+  @Output() movLike = new EventEmitter<JOKE>();
   ngOnInit(): void {}
 
 cancella(elemento: JOKE){
   this.delLike.emit(elemento);
+}
+muovi(elemento: JOKE){
+  this.movLike.emit(elemento);
 }
 }

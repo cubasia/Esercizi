@@ -28,17 +28,13 @@
           {{joke.joke}}
         </td>
       </tr>
-      <!-- <tr>
-        <td>
-          {{joke.type}}
-        </td>
-      </tr> -->
       </table>
     </ng-container>
   </mat-card-content>
   <mat-card-actions class="content-c">
     <div class="divButtonLike">
-      <button mat-raised-button class="buttonPink" (click)="cancella(joke)">Dislike</button>
+      <button mat-raised-button class="buttonPink" (click)="muovi(joke)">Dislike</button>
+      <button mat-raised-button class="buttonPink" (click)="cancella(joke)">Delete</button>
     </div>
   </mat-card-actions>
 </mat-card>
