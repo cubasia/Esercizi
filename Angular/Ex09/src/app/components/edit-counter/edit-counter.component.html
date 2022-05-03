@@ -7,5 +7,11 @@
   <div *ngIf="errore">
        <h1>Value not allowed</h1>
   </div>
+  <div *ngIf="errore2">
+    <h1>{{errorMsg}}</h1>
+  </div>
+<div>
+  <h2>My Counter value is : <span>{{counter | async}}</span></h2>
+</div>
 
 
