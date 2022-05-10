@@ -1,8 +1,8 @@
 <div class="container">
   <h1>Joke App</h1>
   <div class="divButtonStop">
-    <button #pause id="stop" mat-raised-button class="buttonStop">Stop</button>
-    <button #resume mat-raised-button class="buttonGo">Resume</button>
+    <button #pause id="stop" mat-raised-button class="buttonStop" [disabled]="isOn" (click)="OnOff(false)">Stop</button>
+    <button #resume mat-raised-button class="buttonGo" [disabled]="! isOn" (click)="OnOff(true)">Resume</button>
   </div>
   <mat-card class="example-card" *ngIf="jokeObservale | async as joke">
 
@@ -39,8 +39,10 @@
       </div>
     </mat-card-actions>
   </mat-card>
-<div style="margin-bottom: 20px;">
-  <app-show-joke [likeJokeArray]="joeLikeArray" (movLike)="movLike($event)" (delLike)="delLike($event)"></app-show-joke>
+<div class=""showJoke>
+  <app-show-joke [likeJoke]="likeJoke" [i]="i" *ngFor="let likeJoke of joeLikeArray ;let i = index" (movLike)="movLike($event)" (delLike)="delLike($event)"></app-show-joke>
 </div>
-<app-show-jokedislike [dislikeJokeArray]="joeDislikeArray" (delDislike)="delDislike($event)" (movDislike)="movDislike($event)"></app-show-jokedislike>
+<div class="" showJoke>
+  <app-show-jokedislike [dislikeJoke]="dislikeJoke" [i]="i" *ngFor="let dislikeJoke of joeDislikeArray ;let i = index" (delDislike)="delDislike($event)" (movDislike)="movDislike($event)"></app-show-jokedislike>
+</div>
 </div>

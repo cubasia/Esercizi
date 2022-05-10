@@ -7,7 +7,8 @@ import { JOKE } from 'src/app/model/joke-interface';
   styleUrls: ['./show-jokedislike.component.css'],
 })
 export class ShowJokedislikeComponent implements OnInit {
-  @Input() dislikeJokeArray!: JOKE[];
+  @Input() dislikeJoke!: JOKE;
+  @Input() i!: number;
   @Output() delDislike = new EventEmitter<JOKE>();
   @Output() movDislike = new EventEmitter<JOKE>();
   constructor() {}

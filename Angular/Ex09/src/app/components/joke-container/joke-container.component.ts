@@ -1,13 +1,9 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild, ɵclearResolutionOfComponentResourcesQueue } from '@angular/core';
 import { JOKE } from 'src/app/model/joke-interface';
-import { EMPTY, fromEvent, interval, map,  mapTo,  merge,  Observable, of, startWith, switchMap, takeWhile, tap } from 'rxjs';
-import { HttpclientService } from 'src/app/services/HttpClient/HttpClientServices';
+import { EMPTY, fromEvent, interval, map,  mapTo,  merge,  Observable, of, startWith, Subject, Subscription, switchMap, takeWhile, tap } from 'rxjs';
+import { JokeService } from 'src/app/services/joke/joke.service';
+import { AutoUnsubscribe } from 'ngx-auto-unsubscribe';
 
-
-const BASEURL = 'https://v2.jokeapi.dev';
-const CATEGORIES = ['Programming', 'Misc', 'Pun', 'Spooky', 'Christmas'];
-const PARAMS = ['blacklistFlags=nsfw,religious,racist', 'idRange=0-300'];
-const URL = BASEURL + '/joke/' + CATEGORIES.join(',') + '?' + PARAMS.join('&');
 const fakeJoke: JOKE = {
     error: false,
     category: '',
@@ -25,11 +21,12 @@ const jokeObservale2: Observable<JOKE> = of(fakeJoke);
   selector: 'app-joke-container',
   templateUrl: './joke-container.component.html',
   styleUrls: ['./joke-container.component.css'],
+  providers: [JokeService]
 })
-export class JokeContainerComponent implements AfterViewInit {
-  constructor(private httpService: HttpclientService) {
-
-  }
+@AutoUnsubscribe()
+export class JokeContainerComponent implements AfterViewInit, OnDestroy {
+  constructor(private jokeClientService: JokeService) {}
+  isOn = false;
   @ViewChild('pause', { read: ElementRef })
   buttonStop!: ElementRef;
   @ViewChild('resume', { read: ElementRef })
@@ -38,26 +35,32 @@ export class JokeContainerComponent implements AfterViewInit {
   jokeObservale!: Observable<JOKE>;
   stoppable = false;
 
-  joeLikeArray: JOKE[] = [];
-  joeDislikeArray: JOKE[] = [];
+  pause$: Subject<boolean> = new Subject();
+  resume$: Subject<boolean> = new Subject();
+  interval$ = interval(5000).pipe(
+    startWith(0),
+    map((a) => 1)
+  );
+  OnOff(value: boolean) {
+    this.isOn = !value;
+    value ? this.pause$.next(value) : this.resume$.next(value);
+  }
+
+  get joeLikeArray(): JOKE[] {
+    return this.jokeClientService.getLikeArray();
+  }
+  get joeDislikeArray(): JOKE[] {
+    return this.jokeClientService.getDislikeArray();
+  }
 
   ngAfterViewInit(): void {
 
-    const interval$ = interval(5000).pipe(
-      startWith(0),map((a) => 1));
-    const pause$ = fromEvent(this.buttonStop.nativeElement, 'click').pipe(
-      map((a: any) => false)
-    );
-
-    const resume$ = fromEvent(this.buttonGo.nativeElement, 'click').pipe(
-      map((_) => true)
-    );
-    this.jokeObservale = merge(pause$, resume$).pipe(
+    this.jokeObservale = merge(this.pause$, this.resume$).pipe(
       startWith(true),
       tap((n) => (this.stoppable = n)),
-      switchMap((val) => (val ? interval$ : EMPTY)),
+      switchMap((val) => (val ? this.interval$ : EMPTY)),
       switchMap((val) =>
-        val > 0 ? this.httpService.getWithUrl<JOKE>(URL) : jokeObservale2
+        val > 0 ? this.jokeClientService.getnewJoke() : jokeObservale2
       ),
       takeWhile((v) => {
         if (v.id == 0) return false;
@@ -65,37 +68,30 @@ export class JokeContainerComponent implements AfterViewInit {
       })
     );
   }
+  ngOnDestroy() {
+    // this.pause$.unsubscribe();
+    // this.resume$.unsubscribe();
+  }
 
   addLike(element: JOKE): void {
-    if (
-      !this.joeLikeArray.find((val) => val.id == element.id) &&
-      !this.joeDislikeArray.find((val) => val.id == element.id)
-    ) {
-      this.joeLikeArray.push(element);
-    }
+    this.jokeClientService.addLike(element);
   }
   addDislike(element: JOKE): void {
-    if (
-      !this.joeDislikeArray.find((val) => val.id == element.id) &&
-      !this.joeLikeArray.find((val) => val.id == element.id)
-    ) {
-      this.joeDislikeArray.push(element);
-    }
+    this.jokeClientService.addDislike(element);
   }
+
   delLike(element: JOKE): void {
-    const index = this.joeLikeArray.findIndex((val) => val.id == element.id);
-    this.joeLikeArray.splice(index, 1);
+    this.jokeClientService.delLike(element);
   }
   delDislike(element: JOKE): void {
-    const index = this.joeDislikeArray.findIndex((val) => val.id == element.id);
-    this.joeDislikeArray.splice(index, 1);
+    this.jokeClientService.delDislike(element);
   }
   movLike(element: JOKE): void {
-    this.delLike(element);
-    this.addDislike(element);
+    this.jokeClientService.movLike(element);
   }
   movDislike(element: JOKE): void {
-    this.delDislike(element)
-    this.addLike(element)
+    this.jokeClientService.movDislike(element);
   }
 }
+
+

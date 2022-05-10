@@ -37,6 +37,13 @@ const routes: Routes = [
         (m) => m.JokeModule
       ),
   },
+  {
+    path: 'pokemone',
+    loadChildren: () =>
+      import('./components/pokemon-container/module/pokemone.module').then(
+        (m) => m.PokemoneModule
+      ),
+  },
 ];
 
 @NgModule({

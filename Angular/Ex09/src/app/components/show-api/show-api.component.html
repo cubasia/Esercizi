@@ -4,7 +4,7 @@
   </th>
   <ng-container matColumnDef="Index">
     <mat-header-cell *matHeaderCellDef > Prg</mat-header-cell>
-    <mat-cell *matCellDef="let i=index" class="numero">{{i+1}}</mat-cell>
+    <mat-cell *matCellDef="let i=index" class="numero">{{(i+1)+ (paginator.pageIndex * paginator.pageSize)}}</mat-cell>
   </ng-container>
   <ng-container matColumnDef="NomeApi">
     <mat-header-cell *matHeaderCellDef > API </mat-header-cell>
