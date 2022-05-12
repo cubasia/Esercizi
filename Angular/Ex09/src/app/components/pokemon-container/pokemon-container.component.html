@@ -1,7 +1,8 @@
 
 <div class="container">
   <div class="pokelist">
-    <app-pokemon-list [catturati]="pokemonCatturati" [rifiutati]="pokemonRifiutati" [pokemonObservable]="pokemon" (cattura)="cattura($event)" (rifiuta)="rifiuta($event) "
+    <!-- [pokemonObservable]="pokemon" -->
+    <app-pokemon-list [pokemonMostrato]="pokemon | async "[poke]="pokemon | async " [catturati]="pokemonCatturati" [rifiutati]="pokemonRifiutati"  (cattura)="cattura($event)" (rifiuta)="rifiuta($event) "
     (cancrifiutati)="cancellaRif($event)" (canccatturati)="cancellaCat($event)" (show)="showMe($event)" ></app-pokemon-list>
   </div>
   <div class="pokedetail" [ngClass]="pokeBackgroundClass">

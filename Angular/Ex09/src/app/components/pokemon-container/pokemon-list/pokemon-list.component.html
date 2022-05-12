@@ -5,7 +5,7 @@
   </div>
 <div class="container">
   <div class="refused">
-    <h2 style="text-align:center">Pokemon rifiutati:</h2>
+    <h2 >Pokemon rifiutati:</h2>
     <ng-container *ngFor="let item of rifiutati">
       <div class="rifiutati" (dblclick)="cancellaRifiutati(item)"  (click)="showMe(item,rifiutato)">
         <div class="rifiutati-detail">
@@ -15,7 +15,7 @@
           </div>
           <div >
             <ng-container *ngFor="let tipo of item.types">
-              <div style="display: inline-block;padding-left:2px"><h5 style="border-radius:25%;background-color: aquamarine">{{tipo.type.name}}</h5></div>
+              <div class="rifiutati-tipi"><h5 >{{tipo.type.name}}</h5></div>
             </ng-container>
           </div>
         </div>
@@ -23,14 +23,14 @@
     </ng-container>
 
   </div>
-  <div class="select" *ngIf="pokemonObservable | async as poke">
-    <div class="name">
-      <h3>{{poke.name}}</h3>
+  <div class="select" *ngIf="poke;">
+    <div class="name" >
+      <h3  >{{poke.name}}</h3>
     </div>
     <div class="container-poke">
       <div class="detail">
-        <h3 style="text-align:center">Dettagli</h3>
-        <table style="padding-left: 10px;">
+        <h3 >Dettagli</h3>
+        <table >
           <tr>
             <td> ID:</td>
             <td>{{poke.id}}</td>
@@ -62,7 +62,7 @@
     </div>
   </div>
   <!-- end select class -->
-  <div class="accepted">
+  <div class="accepted" >
     <ng-container *ngFor="let item of catturati">
       <div class="elemento" (dblclick)="cancellaCatturati(item)" (click)="showMe(item,catturato)">
         <img [src]="item.sprites?.other?.home?.front_default" [alt]="item.name" style="width: 100%;">

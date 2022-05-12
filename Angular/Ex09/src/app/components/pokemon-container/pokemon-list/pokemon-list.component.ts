@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { POKE, Pokemostrato, Tipo_Pokemon } from 'src/app/model/pokemon-interface';
 
@@ -8,16 +8,19 @@ import { POKE, Pokemostrato, Tipo_Pokemon } from 'src/app/model/pokemon-interfac
   styleUrls: ['./pokemon-list.component.css'],
 })
 export class PokemonListComponent implements OnInit {
-  @Input() pokemonObservable!: Observable<POKE>;
+  // @Input() pokemonObservable!: Observable<POKE>;
+  @Input() poke!: POKE | null;
+  @Input() pokemonMostrato!: POKE | null;
   @Input() catturati!: POKE[];
   @Input() rifiutati!: POKE[];
 
   @Output() cattura = new EventEmitter<POKE>();
   @Output() rifiuta = new EventEmitter<POKE>();
-  @Output() cancrifiutati = new EventEmitter<POKE>();
-  @Output() canccatturati = new EventEmitter<POKE>();
+  @Output() cancrifiutati = new EventEmitter<POKE[]>();
+  @Output() canccatturati = new EventEmitter<POKE[]>();
   @Output() show = new EventEmitter<Pokemostrato>();
-  constructor() {}
+  constructor() { this.pokemonMostrato=this.poke as POKE}
+  //pokemonMostrato?:POKE
   selezionato = Tipo_Pokemon.default
   catturato = Tipo_Pokemon.catturato
   rifiutato = Tipo_Pokemon.rifiutato
@@ -30,10 +33,12 @@ export class PokemonListComponent implements OnInit {
   }
 
   cancellaRifiutati(poke: POKE): void {
-    this.cancrifiutati.emit(poke);
+    let CancellaeSeleziona:POKE[]=[poke,this.pokemonMostrato as POKE];
+    this.cancrifiutati.emit(CancellaeSeleziona);
   }
   cancellaCatturati(poke: POKE): void {
-    this.canccatturati.emit(poke);
+    let CancellaeSeleziona: POKE[] = [poke, this.pokemonMostrato as POKE];
+    this.canccatturati.emit(CancellaeSeleziona);
   }
   catturaPoke(poke: POKE) {
     this.cattura.emit(poke);
@@ -42,5 +47,6 @@ export class PokemonListComponent implements OnInit {
     this.rifiuta.emit(poke);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
+
 }
