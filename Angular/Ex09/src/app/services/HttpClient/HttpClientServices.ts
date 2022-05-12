@@ -4,6 +4,7 @@ import { forkJoin, Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
+
 @Injectable({
   providedIn: 'root',
 })
@@ -36,7 +37,9 @@ export class HttpclientService {
   post(paylods: any) {
     return this._httpClient
       .post(environment.API_URL, paylods)
-      .pipe(retry(1), catchError(this.handleError));
+      .pipe(retry(1), catchError(
+       this.handleError
+        ));
   }
   // HttpClient API get() method => Fetch details
   getTableData(api: any[]) {
@@ -53,5 +56,6 @@ export class HttpclientService {
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
     return throwError(() => errorMessage);
+
   }
 }

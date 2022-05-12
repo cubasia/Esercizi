@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { POKE } from 'src/app/model/pokemon-interface';
+import { POKE, Pokemostrato, Tipo_Pokemon } from 'src/app/model/pokemon-interface';
 import {PokemonServiceService}from '../../services/pokemon/pokemon-service.service';
 @Component({
   selector: 'app-pokemon-container',
@@ -9,9 +9,52 @@ import {PokemonServiceService}from '../../services/pokemon/pokemon-service.servi
   providers: [PokemonServiceService],
 })
 export class PokemonContainerComponent implements OnInit {
-  constructor(private pokemonService:PokemonServiceService ) {}
-pokemon!:Observable<POKE>
+  constructor(private pokemonService: PokemonServiceService) {}
+  pokemon!: Observable<POKE>;
+  singlepokemon?: POKE;
+ pokeBackgroundClass=Tipo_Pokemon.default
+  showMe(poke: Pokemostrato) {
+    this.singlepokemon = poke.pokemon;
+    this.cambiaSfondo(poke.tipo)
+  }
+  cambiaSfondo(tipo: Tipo_Pokemon):void {
+    switch (tipo) {
+      case Tipo_Pokemon.default:
+        this.pokeBackgroundClass = Tipo_Pokemon.default
+        break;
+      case Tipo_Pokemon.catturato:
+        this.pokeBackgroundClass = Tipo_Pokemon.catturato
+        break;
+      case Tipo_Pokemon.rifiutato:
+        this.pokeBackgroundClass = Tipo_Pokemon.rifiutato
+        break;
+      default:
+        break;
+    }
+   }
+
+  get pokemonCatturati(): POKE[] {
+    return this.pokemonService.pokemonCatturati;
+  }
+  get pokemonRifiutati(): POKE[] {
+    return this.pokemonService.pokemonRifiutati;
+  }
   ngOnInit(): void {
-    this.pokemon = this.pokemonService.Pokemon
+    this.pokemon = this.pokemonService.Pokemon;
+  }
+  cancellaRif(poke: POKE): void {
+    this.pokemonService.cancellaRifiutati(poke);
+  }
+  cancellaCat(poke: POKE): void {
+    this.pokemonService.cancellaCatturati(poke);
+  }
+
+  cattura(poke: POKE) {
+    this.pokemonService.cattura(poke);
+    this.ngOnInit();
+  }
+  rifiuta(poke: POKE) {
+    this.pokemonService.rifiuta(poke);
+    this.ngOnInit();
   }
 }

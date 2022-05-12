@@ -1,22 +1,29 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable } from 'rxjs';
 import { POKE } from 'src/app/model/pokemon-interface';
 import { HttpclientService } from '../../services/HttpClient/HttpClientServices'
 
 const URL = 'https://pokeapi.co/api/v2/pokemon/';
-const POKENUMBER=1126
+const POKENUMBER = 898
+const MaxPokeNumber=6
 @Injectable()
 export class PokemonServiceService {
   constructor(private Httpclient: HttpclientService) { }
 
-  pokemonCatturatiArray: POKE[]=[]
-  pokemonRifiutatiArray: POKE[]=[]
+  private pokemonCatturatiArray: POKE[]=[]
+  private pokemonRifiutatiArray: POKE[]=[]
 
   get Pokemon(): Observable<POKE> {
-     const numero = Math.trunc(POKENUMBER * Math.random())
-      const newUrl = URL + numero.toString()
-      return this.Httpclient.getWithUrl<POKE>(newUrl)
+    let numero = Math.trunc(POKENUMBER * Math.random())
+   let  newUrl = URL + numero.toString();
+  //console.log(numero)
+    return this.Httpclient.getWithUrl<POKE>(newUrl).pipe(
+      catchError(error => {
+           return this.Pokemon
+      })
+    )
   }
+
 
   get pokemonCatturati():POKE[] {
     return this.pokemonCatturatiArray
@@ -24,10 +31,16 @@ export class PokemonServiceService {
   get pokemonRifiutati():POKE[] {
     return this.pokemonRifiutatiArray
   }
-  cattura(pokemon:POKE) {
-    this.pokemonCatturatiArray = [...this.pokemonCatturatiArray,pokemon]
+  cattura(pokemon: POKE) {
+
+    if (
+      this.pokemonCatturatiArray.length < MaxPokeNumber &&
+      !this.pokemonCatturatiArray.includes(pokemon)
+    )
+      this.pokemonCatturatiArray = [...this.pokemonCatturatiArray, pokemon];
   }
-  rifiuta(pokemon:POKE) {
+  rifiuta(pokemon: POKE) {
+    if(!this.pokemonRifiutatiArray.includes(pokemon))
     this.pokemonRifiutatiArray = [...this.pokemonRifiutatiArray, pokemon];
   }
   cancellaCatturati(pokemon: POKE) {

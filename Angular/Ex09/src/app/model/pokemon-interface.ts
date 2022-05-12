@@ -334,3 +334,13 @@
         types: Type[];
         weight: number;
     }
+
+export enum Tipo_Pokemon{
+  default ="pokedetail-bg-red",
+  catturato="pokedetail-bg-purple",
+  rifiutato="pokedetail-bg-green"
+    }
+export interface Pokemostrato{
+  pokemon: POKE,
+  tipo:Tipo_Pokemon
+}

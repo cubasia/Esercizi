@@ -1,8 +1,11 @@
+
 <div class="container">
   <div class="pokelist">
-    <app-pokemon-list [pokemonObservable]="pokemon"></app-pokemon-list>
+    <app-pokemon-list [catturati]="pokemonCatturati" [rifiutati]="pokemonRifiutati" [pokemonObservable]="pokemon" (cattura)="cattura($event)" (rifiuta)="rifiuta($event) "
+    (cancrifiutati)="cancellaRif($event)" (canccatturati)="cancellaCat($event)" (show)="showMe($event)" ></app-pokemon-list>
   </div>
-  <div class="pokedetail">
-    <app-pokemon-details></app-pokemon-details>
+  <div class="pokedetail" [ngClass]="pokeBackgroundClass">
+    <app-pokemon-details [pokemon]="singlepokemon" ></app-pokemon-details>
   </div>
 </div>
+
