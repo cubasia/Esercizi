@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './components/Activities/home/home.component';
 
 const routes: Routes = [
   {
@@ -43,6 +44,24 @@ const routes: Routes = [
       import('./components/pokemon-container/module/pokemone.module').then(
         (m) => m.PokemoneModule
       ),
+  },
+  {
+    path: 'activity',
+    loadChildren: () =>
+      import('./components/Activities/home/module/activity.module').then(
+        (m) => m.ActivityModule    ),
+  },
+  {
+    path: 'list',
+    loadChildren: () =>
+      import('./components/Activities/list/module/list.module').then(
+        (m) => m.ListModule    ),
+  },
+  {
+    path: 'list/:number',
+    loadChildren: () =>
+      import('./components/Activities/detail/module/detail.module').then(
+        (m) => m.DetailModule   ),
   },
 ];
 

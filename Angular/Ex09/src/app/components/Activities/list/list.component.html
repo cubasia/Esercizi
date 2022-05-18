@@ -1,0 +1,11 @@
+<h1>LISTA DELLE ATTIVITA'</h1>
+<div class="row my-3 py-3 align-items-center size" *ngFor="let activity of getLista;let i =index">
+  <div class="col">{{ activity.activity }}</div>
+  <div class="col">{{ activity.type | titlecase}} </div>
+  <div class="col-1">{{ activity.price | pricePipe }}</div>
+  <div class="col d-flex justify-content-end">
+    <a class="btn btn-primary" (click)="dettagli(activity.key)">Dettagli</a>
+   </div>
+  </div>
+
+<button btn btn-lg [routerLink]="['/activity']">Torna Indietro</button>

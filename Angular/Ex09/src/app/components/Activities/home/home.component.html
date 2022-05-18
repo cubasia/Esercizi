@@ -1,0 +1,27 @@
+<div class="container bg-info">
+  <h1 style="margin-top: 20px;">HOME PAGE</h1>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+  <div style="margin-top: 20px;width:25%">
+<label for="Default select example" class="form-label">Tipo </label>
+    <select class="form-select" aria-label="Default select example" formControlName="tipo" >
+      <option selected>attivita</option>
+      <option *ngFor="let x of  listTipi;let i =index" [value]="x">{{i+1}}. {{x}}</option>
+    </select>
+  </div>
+  <div style="margin-top: 20px;width:25%">
+    <label for="Username" class="form-label">Partecipanti </label>
+    <input formControlName="partecipanti" type="number" class="form-control" placeholder="Numero Partecipanti"
+      aria-label="Username" aria-describedby="basic-addon1" value="0" min="0">
+  </div>
+
+  <div style="margin-top: 20px;width:25%">
+    <label for="customRange1" class="form-label">Prezzo {{prezzoCorrente}}</label>
+        <input type="range" class="form-range" id="customRange1" min="0" max="1" step="0.1" value="0.1"
+        formControlName="prezzo"  #prezzo>
+  </div>
+  <p>Complete the form to enable button.</p>
+  <button btn btn-secondary type="submit" [disabled]="!profileForm.valid">Submit</button>
+</form>
+
+</div>

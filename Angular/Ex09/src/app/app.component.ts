@@ -9,8 +9,8 @@ import { ThemePalette } from '@angular/material/core';
 })
 export class AppComponent {
   title = 'Ex09';
-  links = ['show', 'edit', 'shop', 'api', 'joke', 'pokemone'];
-  titles = ['Show', 'Edit', 'Shop', 'Shop-api', 'Joke', 'Pokemone'];
+  links = ['show', 'edit', 'shop', 'api', 'joke', 'pokemone','activity'];
+  titles = ['Show', 'Edit', 'Shop', 'Shop-api', 'Joke', 'Pokemone','Attività'];
   activeLink = this.links[1];
   myColor: ThemePalette = 'accent';
 }

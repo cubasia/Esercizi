@@ -1,0 +1,32 @@
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { Attivita } from '../../../model/attivita';
+import { ActivityService } from 'src/app/services/activity.service';
+
+
+@Component({
+  selector: 'app-detail',
+  templateUrl: './detail.component.html',
+  styleUrls: ['./detail.component.css'],
+})
+export class DetailComponent implements OnInit {
+  currentRoute: any;
+  constructor(
+    private myService: ActivityService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
+
+      }
+
+
+
+  attivita?:Attivita
+  ngOnInit(): void {
+    let dividi = this.router.url.split('/');
+    let key = dividi[dividi.length - 1]
+    this.myService.getAttivita(key).subscribe(
+      activity => this.attivita=activity)
+  }
+
+}

@@ -1,4 +1,4 @@
-<div class="column small-12 large-2">
+<div class="column small-12 large-2 container" style="margin-top:20px">
 <label for="Name" >Nome</label>
 <select id="Name" [formControl]="selectBeerName" (change)="selectName = false">
   <option *ngFor="let birra of birre |async"
