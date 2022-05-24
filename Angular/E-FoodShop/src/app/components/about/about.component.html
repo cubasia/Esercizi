@@ -1,0 +1,17 @@
+<section class="about">
+  <div class="container py-5">
+    <div class="row py-5">
+      <div class="col-lg-8 m-auto text-center">
+        <h1>Welcome to Our Organic Food Society</h1>
+        <h6>Be Healthy Organic Food</h6>
+      </div>
+      <div class="row">
+        <div class="col-lg-4" *ngFor="let prodotto of prodotti">
+              <img [src]="prodotto.image" alt="" class="img-fluid mb-3">
+              <h5>{{prodotto.title}}</h5>
+              <p>{{prodotto.description}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
