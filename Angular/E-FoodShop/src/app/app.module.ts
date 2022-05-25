@@ -11,6 +11,7 @@ import { AboutComponent } from './components/about/about.component';
 import { ShopComponent } from './components/shop/shop.component';
 import { AppleComponent } from './components/apple/apple.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { NewsComponent } from './components/news/news.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ContactComponent } from './components/contact/contact.component';
     AboutComponent,
     ShopComponent,
     AppleComponent,
-    ContactComponent
+    ContactComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,
