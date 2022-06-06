@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BeerService } from 'src/app/services/beer/beer.service';
 import { Beer } from 'src/app/model/beer-interface';
 import { Observable } from 'rxjs';
-import { FormControl } from '@angular/forms';
+import { FormControl, UntypedFormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-shop',

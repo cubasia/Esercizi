@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormGroup, FormControl, AbstractControl, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, AbstractControl, ValidationErrors, ValidatorFn, Validators, FormControl, FormGroup } from '@angular/forms';
 import { catchError, Observable, of, Subject, Subscription, takeUntil } from 'rxjs';
 import { Attivita } from '../../../model/attivita';
 import { ActivityService } from '../../../services/activity.service'
@@ -35,9 +35,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   errore = true;
   profileForm = new FormGroup(
     {
-      tipo: new FormControl(''),
-      partecipanti: new FormControl(''),
-      prezzo: new FormControl('0'),
+      tipo: new FormControl<string | null>(""),
+      partecipanti: new FormControl<number>(0),
+      prezzo: new FormControl<number >(0),
     },
     { validators: this.controlla }
   );
@@ -75,17 +75,17 @@ export class HomeComponent implements OnInit, OnDestroy {
     // let risposta = this.myService.getWithParameters(myparameters).pipe(
     //   catchError(err => of ({"error":err.message}))
     // )
-    let risposta = this.myService.getWithParameters(myparameters)
+    let risposta = this.myService.getWithParameters(myparameters);
 
-  //  risposta.subscribe(x=> console.log(x))
+    //  risposta.subscribe(x=> console.log(x))
     this.myService.trovataAttivita(risposta).subscribe(
       (x) =>
         x
           ? this.toastr.warning('Attività non trovata', 'Ohh Ohh')
           : this.verificaEsistenza(risposta),
-      (error) => this.toastr.error(error.message, error.status + ' ' +error.statusText)
+      (error) =>
+        this.toastr.error(error.message, error.status + ' ' + error.statusText)
     );
-
   }
   verificaEsistenza(item: Observable<Attivita>) {
     this.myService.esisteattivita(item).subscribe((x) => {
@@ -103,11 +103,12 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.router.navigateByUrl('list');
   }
   ngOnInit(): void {
-    let sub = this.profileForm.get('prezzo')?.valueChanges.
-      pipe(takeUntil(this.unsubscribe$))
+    let sub = this.profileForm
+      .get('prezzo')
+      ?.valueChanges.pipe(takeUntil(this.unsubscribe$))
       .subscribe((x) => {
-      this.prezzoCorrente = x;
-    });
+        this.prezzoCorrente = x ?? 0;
+      });
   }
   ngOnDestroy() {
     this.unsubscribe$.next();
