@@ -1,50 +1,17 @@
-class veicolo {
-  constructor(name) {
-    this.name = name;
+function canPlay() {
+   let personName;
+  if (true) {
+    personName = 'Paul';
   }
+
+  personName += ' plays football'; 
+
+  console.log(personName);
 }
 
-class moto extends veicolo {
-  constructor(name) {
-    super(name);
-    this.ruote = 2;
-  }
-}
-class auto extends veicolo {
-  constructor(name) {
-    super(name);
-    this.ruote = 4;
-  }
-}
-class concessionario {
-  constructor(name) {
-    this.name = name;
+canPlay();
 
-    this.moto = [];
-    this.auto = [];
-  }
+model/resource/ResourceModel.js': failed to load 'sap.ui/model/resource/ResourceModel.js' from https://openui5.hana.ondemand.com/resources/sap.ui/model/resource/ResourceModel.js: script load error
 
-  aggiungi(veicolo, quantita) {
-    if (veicolo instanceof  moto) {
-      for (let i = 0; i < quantita; i++) {
-        this.moto = [...this.moto, veicolo];
-      }
-    }
-    if (veicolo instanceof auto) {
-      for (let i = 0; i < quantita; i++) {
-        this.auto = [...this.auto, veicolo];
-      }
-    }
-  }
-
-  inventario() {
-    console.log(this.auto);
-    console.log(this.moto);
-  }
-}
-
-let Gino = new concessionario("Salaria");
-Gino.aggiungi(new moto("bmw"), 2);
-Gino.aggiungi(new auto("bmw"), 2);
-Gino.inventario();
-
+thunder client
+rgb(44, 123, 229)
