@@ -3,22 +3,93 @@
   background-color: blue;
   color:white;
 }
-.icone i+i {
-  padding: 0 0.5em;
-}
+
+
 .icone i {
   color:white;
-}
+ display: block;
+ float: left;
+ width: 18px;
+ height: 18px;
 
+ border-radius: 20px;
+ margin-right: 7px;
+
+ background: rgb(122, 176, 187);
+ background: linear-gradient(90deg, rgba(122, 176, 187, 1) 21%, rgba(75, 154, 170, 1) 24%);
+
+}
+.contatti{
+  padding-left: 4em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+
+}
+.icone{
+padding-right: 4em;
+padding-top: 1em;
+padding-bottom: 1em;
+}
+.barra{
+padding-right: 4em;
+}
 
 /* NAV BAR */
 
 section a {
   font-family: var(--Sniglet-font);
   font-size: 0.9em;
-  color: whitesmoke;
+  color: black;
 }
 
+
+
+
+
+section .nav-link:hover {
+  color: black;
+}
+
+
+
+
+
+section {
+  background:white;
+
+}
+
+.sposta{
+  margin-right: 0.5em ;
+}
+section .nav-item {
+  padding: 0.4em;
+  font-family: "Rubik", sans-serif;
+}
+
+h1 {
+  font-family: "Rubik", sans-serif;
+}
+
+section .container .col-md-7 h6 {
+  padding: 1vmin;
+  letter-spacing: 4px;
+}
+
+section .container .col-md-7 h1 {
+  font-size: 8.5vmin;
+  font-weight: bold;
+  padding: 0.1em 0em;
+}
+
+section .container .col-md-7 p {
+  padding: 1vmin 5vmin;
+}
+
+.primary-btn {
+  border-radius: 30px;
+  font-weight: bold;
+}
 .dropdown-content {
   display: none;
   position: absolute;
@@ -43,61 +114,27 @@ section a {
   display: block;
 }
 
-section .nav-item:last-child {
+/* section .nav-item:last-child {
   padding-right: 10.5em;
-}
-
-section .nav-item {
-  padding: 0.9em;
-}
-
-/* section .navbar-brand {
-  padding-left: 8rem;
 } */
-
-section .nav-link:hover {
-  color: black;
+.navbar .navbar-nav .nav-link {
+  color: var(--dark);
 }
 
-section .row .col-md-7 {
-  padding: 22vmin 1vmin;
-  padding-bottom: 35vmin;
+.navbar .navbar-nav .nav-link:hover {
+  color: var(--brand);
 }
 
-section .row .col-md-5 {
-  padding: 4.2vmin 1vmin;
+.navbar .navbar-nav .nav-link.active {
+  color: var(--brand);
 }
 
-section .row .col-md-5 img {
-  width: 90%;
+.navbar-brand {
+  font-size: 28px;
+  font-weight: 700;
 }
 
-section {
-  background: #ff512f;
-  /* fallback for old browsers */
-  background: var(--bggradient);
+.navbar-brand .dot {
+  color: var(--brand);
 }
 
-section .container .col-md-7 {
-  font-family: "Rubik", sans-serif;
-}
-
-section .container .col-md-7 h6 {
-  padding: 1vmin;
-  letter-spacing: 4px;
-}
-
-section .container .col-md-7 h1 {
-  font-size: 8.5vmin;
-  font-weight: bold;
-  padding: 0.1em 0em;
-}
-
-section .container .col-md-7 p {
-  padding: 1vmin 5vmin;
-}
-
-.primary-btn {
-  border-radius: 30px;
-  font-weight: bold;
-}

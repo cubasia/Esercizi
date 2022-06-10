@@ -1,40 +1,59 @@
-//The word “async” before a function means one simple thing: a async function always returns a promise.
+// //The word “async” before a function means one simple thing: a async function always returns a promise.
 
-//Forma con promise esplicita
-function forma2() {
-  return new Promise(function (resolve, reject) {
-    resolve(1);
-  });
-}
-//Forma con promise implicita
-async function forma1() {
-  return 1;
-}
-//Verifica
-forma1().then(console.log)
-forma2().then(console.log)
-//------------------------------- seconda parte ----------------------------------------------------------------
-async function formasyncawait() {
-  let promise = new Promise((resolve, reject) => {
-    setTimeout(() => resolve("done!"), 1000);
-  });
+// //Forma con promise esplicita
+// function forma2() {
+//   return new Promise(function (resolve, reject) {
+//     resolve(1);
+//   });
+// }
+// //Forma con promise implicita
+// async function forma1() {
+//     // return 1;
+//     return await Promise.resolve(1);
+//     }
 
-  let result = await promise; // aspetta la promise , modo implicito
-  console.log(result); // "done!"
+// // class Oggetto {
+// //     async   ritornauno(){
+// //        return 1;
+// //     }
+// // }
+// // new Oggetto()
+// //     . ritornauno()
+// //     .then()
+ 
 
-  //modo equivalente , esplicito
-    promise.then(parametro => { result = parametro; });
+// //Verifica
+// forma1().then(console.log)
+// forma2().then(console.log)
 
-  // wait 3 seconds
-  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-}
 
-formasyncawait();
+
+
+// //------------------------------- seconda parte ----------------------------------------------------------------
+// async function formasyncawait() {
+//   let promise = new Promise((resolve, reject) => {
+//     setTimeout(() => resolve("done!"), 1000);
+//   });
+
+//   //modo equivalente , esplicito
+// //   promise.then((parametro) => {
+// //     result = parametro;
+// //   });
+
+//   let result = await promise; // aspetta la promise , modo implicito
+//   console.log(result); // "done!"
+
+//   // wait 3 seconds
+//   await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+// }
+
+// formasyncawait();
 
 //test finale1,
 class Waiter {
   async wait() {
-    return await Promise.resolve(1);
+      return await Promise.resolve(1);
+      //return 1;
   }
 }
 
@@ -71,14 +90,22 @@ new Waiter() //Spiega cosa fa
 async function wait() {
   await new Promise(resolve => setTimeout(resolve, 1000));
 
-  return 10;
+    return 10;
+//       return new Promise(function (resolve, reject) {
+//  resolve(10);
+//    });
 }
 
 function f() {
   // ...scrivere un codice per richiamare la funzione wait
     // we need to call async wait() and wait to get 10 e stampare in console il suo risultato
-  
+    wait()
+        //.then(risultato => console.log(risultato));
+        .then(parametro => parametro *2)
+       .then(console.log);
 }
 
-//end test3
+// //end test3
 f() //darà come risultato 10
+ 
+

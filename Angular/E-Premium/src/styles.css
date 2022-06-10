@@ -5,9 +5,6 @@
   box-sizing: border-box;
 }
 
-section {
-  overflow-x: hidden;
-}
 
 :root {
   --Sniglet-font: "Sniglet", cursive;
@@ -17,4 +14,17 @@ section {
   --light-black: #2e2c2caf;
   --bggradient: linear-gradient(to bottom, #dd2476, #ff512f);
   --light-gray: rgba(255, 255, 255, 0.877);
+    --brand: #ff4d29;
+    --dark: #092032;
+    --body: #516171;
+    --border: rgba(0, 0, 0, 0.08);
+    --shadow: 0px 6px 30px rgba(0, 0, 0, 0.08);
+
+}
+.display-1,
+.display-2,
+.display-3,
+.display-4 {
+  font-weight: 700;
+  color: var(--dark);
 }
