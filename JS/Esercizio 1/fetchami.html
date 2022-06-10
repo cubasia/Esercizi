@@ -1,0 +1,43 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="fetchami()" style="width:100px; height:20px">FetchMe</button>
+    <div id="container">
+        <ul class="todo-list">
+            <!-- <li>PIPPO</li>  -->
+        </ul>
+    </div>
+
+    <script>
+        function fetchami() {
+            let covid19Italia = {}
+            let url = "https://api.covid19api.com/"
+            fetch(url)
+                .then(response => {
+                    if (response.status === 200) {
+                        return response.json()
+                    }
+                })
+                .then(data => CreamiLi(data))
+        }
+
+        function CreamiLi(CovidData) {
+            let elementoUL = document.getElementsByClassName('todo-list')[0]
+            for (proprieta in CovidData) {
+                var li = document.createElement("li");
+                li.innerHTML = CovidData[proprieta].Name
+                elementoUL.append(li)
+            }
+        }
+
+    </script>
+</body>
+
+</html>

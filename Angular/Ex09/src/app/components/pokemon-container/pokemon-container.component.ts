@@ -46,8 +46,7 @@ export class PokemonContainerComponent implements OnInit {
   cancellaRif(poke: POKE[]): void {
     this.pokemonService.cancellaRifiutati(poke[0]);
     let pokedamostrare: Pokemostrato = { pokemon: poke[1], tipo: Tipo_Pokemon.default };
-    this.showMe(pokedamostrare)
-    ;
+    this.showMe(pokedamostrare) ;
   }
   cancellaCat(poke: POKE[]): void {
     this.pokemonService.cancellaCatturati(poke[0]);
