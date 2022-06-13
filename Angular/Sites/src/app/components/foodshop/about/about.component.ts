@@ -12,19 +12,19 @@ interface prodotto {
 export class AboutComponent implements OnInit {
   prodotti: prodotto[] = [
     {
-      image: 'assets/foto/Woman1.jpg',
+      image: 'assets/food/Woman1.jpg',
       title: 'Best Quality Product',
       description:
         'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium sequi nihil consectetur, corporis voluptas alias natus!',
     },
     {
-      image: 'assets/foto/arance.jpg',
+      image: 'assets/food/arance.jpg',
       title: 'Organic Food',
       description:
         'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium sequi nihil consectetur, corporis voluptas alias natus!',
     },
     {
-      image: 'assets/foto/Woman2.jpg',
+      image: 'assets/food/Woman2.jpg',
       title: 'Best Quality Food',
       description:
         'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium sequi nihil consectetur, corporis voluptas alias natus!',

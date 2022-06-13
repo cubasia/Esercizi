@@ -13,10 +13,10 @@ interface prodotto {
 })
 export class ProductComponent implements OnInit {
   prodotti: prodotto[] = [
-    { image: "assets/foto/energy.jpg", price: 39.99, description: "Energy Food" },
-    { image: "assets/foto/beans.jpg", price: 9.99, description: "Beans" },
-    { image: "assets/foto/peas.jpg", price: 6.99, description: "Peas" },
-    { image: "assets/foto/spaghetti.jpg", price: 19.99, description: "Spaghetti" },
+    { image: "assets/food/energy.jpg", price: 39.99, description: "Energy Food" },
+    { image: "assets/food/beans.jpg", price: 9.99, description: "Beans" },
+    { image: "assets/food/peas.jpg", price: 6.99, description: "Peas" },
+    { image: "assets/food/spaghetti.jpg", price: 19.99, description: "Spaghetti" },
   ];
   constructor() {}
 

@@ -1,0 +1,60 @@
+<!-- Recuperare il post presente all'interno del LocalStorage (salvato tramite l'esercizio precedente)
+Visualizzare all'interno dell'elemento #post-title il titolo del post recuperato dal LocalStorage -->
+
+
+<html>
+
+<body>
+  <div id="container">
+    <button type="button" id="fetch-post" onclick="fetchPost()">Fetch Post</button>
+    <button type="button" id="save-post" onclick="savePost()"> Post on LocalStorage</button>
+    <button type="button" id="read-post" onclick="readPost()"> Read Post</button> From LocalStorage</button>
+
+    <h2>Post: <span id="post-title"></span></h2>
+  </div>
+
+</body>
+
+</html>
+
+<script>
+  // code here
+  function readPost() {
+    //1. prendere il contenuto all'interno di local storage e metterlo in post title
+    let Mario = JSON.parse(localStorage.getItem("salva"))
+
+    let contenuto = ""
+    for (let key of Object.keys(Mario)) {
+
+      contenuto +=  "<br>"+key + ": " + Mario[key] 
+
+    }
+
+    //  document.getElementById("post-title").textContent=  localStorage.getItem("salva")
+    document.getElementById("post-title").innerHTML = contenuto
+    // console.log( localStorage.getItem("salva"))
+
+
+
+
+
+
+  }
+
+  function fetchPost() {
+    let url = "https://jsonplaceholder.typicode.com/posts/1"
+    fetch(url)
+      .then(response => response.json()) //questa riga restituisce un promise dell'oggetto parsato dalla response
+      .then(data => Frigo = data)
+      .catch(err => console.log(err))
+
+  }
+
+  let Frigo = {} // questo è il valore che devo inizializzare quando premo il pulsante fetchpost e che poi utilizzerò
+  // nella funzione savepost per salvare il contenuto nel local storage
+  function savePost() {
+    localStorage.setItem("salva", JSON.stringify(Frigo))
+    //   localStorage.getItem("casa")
+  }
+
+</script>

@@ -1,0 +1,89 @@
+.main {
+  background-color: blue;
+  color: white;
+}
+
+
+.icone i {
+  color: white;
+  display: block;
+  float: left;
+  width: 18px;
+  height: 18px;
+
+  border-radius: 20px;
+  margin-right: 7px;
+
+  background: rgb(122, 176, 187);
+  background: linear-gradient(90deg, rgba(122, 176, 187, 1) 21%, rgba(75, 154, 170, 1) 24%);
+
+}
+.barra {
+  padding-right: 4em;
+}
+.contatti {
+  padding-left: 4em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+
+}
+/* NAV BAR */
+
+section a {
+  font-family: var(--Sniglet-font);
+  font-size: 0.9em;
+  color: black;
+}
+section .nav-link:hover {
+  color: black;
+}
+section {
+  background: whitesmoke;
+}
+.sposta {
+  margin-right: 0.5em;
+}
+
+section .nav-item {
+  padding: 0.4em;
+  font-family: "Rubik", sans-serif;
+}
+
+h1 {
+  font-family: "Rubik", sans-serif;
+}
+
+section .container .col-md-7 h6 {
+  padding: 1vmin;
+  letter-spacing: 4px;
+}
+
+section .container .col-md-7 h1 {
+  font-size: 8.5vmin;
+  font-weight: bold;
+  padding: 0.1em 0em;
+}
+
+section .container .col-md-7 p {
+  padding: 1vmin 5vmin;
+}
+.navbar .navbar-nav .nav-link {
+  color: var(--dark);
+}
+
+.navbar .navbar-nav .nav-link:hover {
+  color: var(--brand);
+}
+
+.navbar .navbar-nav .nav-link.active {
+  color: var(--brand);
+}
+
+.navbar-brand {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.navbar-brand .dot {
+  color: var(--brand);
+}

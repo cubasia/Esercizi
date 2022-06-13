@@ -1,0 +1,36 @@
+<!-- Recuperare il post presente al seguente url: https://jsonplaceholder.typicode.com/posts/1 
+    al click del pulsante "FetchPost"
+Salvare il post sul localStorage al click del pulsante "Save Post on LocalStorage" -->
+
+<html>
+<body>
+    <div id="container">
+        <button type="button" id="fetch-post" onclick="fetchPost()">Fetch Post</button>
+        <button type="button" id="save-post" onclick = "savePost()"> Post on LocalStorage</button>
+    </div>
+    <!-- <textarea id="pippo"></textarea> -->
+</body>
+
+</html>
+
+<script>
+  // code here
+  function fetchPost() {
+    let url ="https://jsonplaceholder.typicode.com/posts/1"
+    fetch(url)
+    .then(response=> response.json()) //questa riga restituisce un promise dell'oggetto parsato dalla response
+    .then(data=>Frigo=data)
+    .catch( err => console.log(err))
+    
+    }
+    
+  
+
+  let Frigo = {} // questo è il valore che devo inizializzare quando premo il pulsante fetchpost e che poi utilizzerò
+  // nella funzione savepost per salvare il contenuto nel local storage
+    function savePost(){
+      localStorage.setItem("salva",JSON.stringify(Frigo))
+//   localStorage.getItem("casa")
+  }
+
+</script>
