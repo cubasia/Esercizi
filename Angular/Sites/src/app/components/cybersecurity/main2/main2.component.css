@@ -1,0 +1,81 @@
+.colored {
+  color: rgb(144, 0, 70);
+}
+
+.backcolored {
+  color: rgb(144, 0, 70);
+}
+.box
+{
+  background-image: url("/assets/security/PURPLE_BIG.png");
+  text-align: center;
+  height: 170px;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+  padding: 7px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 20px 7px 20px 7px;
+  border-radius: 30px;
+    font-size: 16px;
+   width:33%;
+   margin: 2rem;
+   color: white;
+}
+.box:hover{
+background-image: url("/assets/security/ORANGE_BIG.png");
+}
+.sposta {
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-top: 4rem;
+}
+
+.box img{
+  width:40px;
+   height:40px;
+}
+
+#linea{
+  position: relative;
+  margin-left: 2rem;
+  margin-right: 3rem;
+  margin-top: 3rem;
+}
+.divisore{
+  width: 95%;
+  height: 2px;
+  /* background-color: #900046; */
+  margin: auto;
+  border: 2px solid #900046;
+  ;
+}
+.box1{
+  background: rgb(191, 191, 191) none repeat scroll 0% 0%;
+  text-align: center;
+  height: 170px;
+  overflow: hidden;
+   padding: 7px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 20px 7px 20px 7px;
+  border-radius: 30px;
+  font-size: 16px;
+  width:33%;
+  margin: 2rem;
+  color: white;
+}

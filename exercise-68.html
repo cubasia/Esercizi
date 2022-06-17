@@ -1,0 +1,87 @@
+<!-- # Network Requests - Exercise 68
+Implementare il codice necessario per eseguire una richiesta HTTP che si occupa di creare un nuovo post. 
+Per creare un nuovo post utilizzare il seguente url: https://jsonplaceholder.typicode.com/posts (metodo: POST). 
+Il corpo della richiesta deve contenere un oggetto post con le seguenti informazioni: `title` e flag `completed`. 
+I dati del post dovranno essere trasmessi in seguito alla compilazione di un form. 
+
++++++++++++++++++++++++++++++++++++++++++++++++
+
+1) Associare all'evento "submit" del tag <form>, scatenato dalla pressione del bottone (tag <button>), la funzione relativa al post (function sarà "postFu")
+2) Esplicitare, per la funzione fetch, il metodo post, altrimenti fa il get
+3) Impostare il body della fetch con le proprietà "title" e "completed" con le info scritte dall'utente
+4) Impostare la proprietà "headers" 
+5) Recuperare la risposta del server 
+6) stampare il log la risposta del punto 5) per verificare che il server abbia "compreso bene"
+
+-->
+
+<html>
+
+<body>
+  <div id="container">
+    <form>
+      <div>
+        <label>Title</label>
+        <input type="text" id="todo-title" />
+      </div>
+      <div>
+        <label>Completed</label>
+        <input type="checkbox" id="todo-completed" />
+      </div>
+
+      <button type="submit" id="submit-todo"></button>
+    </form>
+  </div>
+</body>
+
+</html>
+
+<script>
+  // code here
+  let url = "https://jsonplaceholder.typicode.com/posts";
+  const varForm = document.querySelector("form");
+  varForm.addEventListener("submit", postFu); //le 3 righe rappresentano il punto 1)
+  function postFu(event) {
+    event.preventDefault();
+    try {
+      if (document.querySelector("#todo-title").value) {
+        let titleValue = document.getElementById("todo-title").value
+        let completed = document.getElementById("todo-completed")
+        //potevo anche non usar le variabili
+        let payload = {
+          'title': titleValue,
+          'completed': completed.checked
+        };
+
+        // fetch(url, {
+        //   method: 'POST',
+        //   headers: {
+        //     'Accept': 'application/json, text/plain, */*',
+        //     'Content-Type': 'application/json',
+        //   },
+        //   body: JSON.stringify(payload),
+        // })
+        //   .then((response) => {
+        //     response.json();
+        //   )}
+        //   .then((data) => console.log(data))
+        //   .catch((error) => console.log);
+        fetch(url, {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        }).then(response => response.json())
+          .then(res => console.log(res))  //restituisce nel log l'elemento inserito
+      }
+         else {
+        alert("Attenzione devi scrivere qualcosa!");
+      }
+    }
+    catch (error) {
+      console.log(error);
+    }
+  }
+</script>

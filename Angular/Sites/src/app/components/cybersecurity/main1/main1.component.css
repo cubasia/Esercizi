@@ -1,0 +1,82 @@
+.sposta
+{
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-top: 4rem;
+}
+.card{
+  overflow: hidden;
+}
+.foto1,.foto2,.foto3
+{
+  width: 100%;
+  height: 5rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: transform .5s ease-in-out;
+  position: relative;
+}
+.foto1{
+background-image: url("/assets/security/PHISHALARM_NEWS.jpg");
+}
+.foto2{
+background-image: url("/assets/security/BRANCH-LIGHT.png");
+}
+.foto3{
+background-image: url("/assets/security/APRIL_FOOL.jpg");
+}
+
+.foto1:hover,
+.foto2:hover,
+  .foto3:hover
+    {
+    transform: scale(1.05);
+}
+.format-card{
+background-color: rgb(144,0,70);
+color: white;
+}
+
+.colored{
+  color: rgb(144, 0, 70);
+}
+.backcolored {
+  color: rgb(144, 0, 70);
+}
+
+.interlinea
+{
+  padding-bottom: 1rem;
+  padding-right: 3rem;
+
+}
+
+.row.vertical-divider {
+  overflow: hidden;
+}
+
+.row.vertical-divider>div[class^="col-"] {
+  text-align: center;
+  padding-bottom: 100px;
+  margin-bottom: -100px;
+  border-left: 2px solid #900046;
+  border-right: 2px solid #900046;
+
+}
+
+.row.vertical-divider div[class^="col-"]:first-child {
+  border-left: none;
+}
+
+.row.vertical-divider div[class^="col-"]:last-child {
+  border-right: none;
+}
+
+.cala4
+{
+  margin-top: 2rem;
+}
+
+h2.colored{
+  margin-top: 4rem;
+}

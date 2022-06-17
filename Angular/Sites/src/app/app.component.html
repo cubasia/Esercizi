@@ -1,5 +1,5 @@
 
-<div class="container-fluid p-0 main" *ngIf="visible | async as visibile">
+<div class="container-fluid main" *ngIf="visible | async as visibile">
 
   <div class="row d-flex justify-content-end ">
     <div class="col-6  contatti">
@@ -19,9 +19,9 @@
 
 </div>
 
-  <!--   NAVIGATION -->
+    <!-- NAVIGATION -->
   <section class="header" id="" *ngIf="visible | async as visibile">
-    <div class="container-fluid p-0">
+    <div class="container-fluid">
       <div class="row d-flex">
 
         <div class="col-lg-4  barra">
@@ -44,6 +44,9 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" routerLink="premier" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="naviga()">Company</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="security" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="naviga()">Security</a>
                 </li>
 
               </ul>

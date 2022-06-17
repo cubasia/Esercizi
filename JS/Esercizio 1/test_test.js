@@ -1,3 +1,16 @@
+const { addAbortSignal } = require("stream");
 
-let a =Array(0)
-console.log(a);
+let ResponsefromUrl = {
+  title: "",
+  checked: true,
+};
+    
+let document = {
+    5345454{
+        id="container",
+        tag: div,
+        style: "aaaa",
+        class: "",
+        onclick:222
+    }
+    }
