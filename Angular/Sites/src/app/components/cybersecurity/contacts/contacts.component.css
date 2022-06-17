@@ -1,0 +1,44 @@
+.colored {
+  color: rgb(144, 0, 70);
+}
+
+.backcolored {
+  color: rgb(144, 0, 70);
+}
+
+.sfondo {
+  background-color: rgb(243, 242, 241);
+}
+
+.sposta {
+  margin-left:6rem;
+  margin-right: 6rem;
+  /* margin-top: 3rem; */
+  /* border: 1px solid black; */
+}
+
+.btn-mio {
+  /* height: 2rem; */
+  /* padding: 1rem !important; */
+  border-radius: 12px;
+  width: 12rem;
+  color: black;
+  background-color: white;
+  text-align: center;
+  /* display: inline-block; */
+}
+
+a{
+  /* padding: 10px; */
+  text-decoration: none;
+  margin-left:20px;
+  /* border: 1px solid black; */
+}
+#fotina{
+  height: 40px;
+  width:  40px;
+  border-radius: 50%;
+}
+i{
+  margin-right: 5px;
+}
