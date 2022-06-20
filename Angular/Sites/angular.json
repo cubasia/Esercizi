@@ -28,11 +28,10 @@
             ],
             "styles": [
               "src/styles.css",
-              "../assets/security/css/fabric-icons-inline.css"
-
+              "src/assets/security/css/fabric-icons-inline.css"
             ],
             "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+
             ]
           },
           "configurations": {

@@ -1,0 +1,33 @@
+.backcolored {
+  background-color: rgb(144, 0, 70);
+}
+.colored-yellow{
+  color:#ffd300
+}
+.carousel-indicators li {
+  background-color: grey;
+  height: 0.5rem !important;
+  width: 2rem !important;
+  /* z-index: 3 !important; */
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.carousel-indicators li.active {
+  background-color: whitesmoke;
+
+}
+.carousel-indicators li {
+  border-radius: 50%;
+height: 25px !important;
+width: 25px !important;
+}
+.carousel-indicators {
+bottom: -3rem;
+
+
+}
+
+.carousel-item >h6{
+  color:white
+}
