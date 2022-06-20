@@ -13,19 +13,17 @@
   cursor: pointer;
 }
 
-.carousel-indicators li.active {
+/* .carousel-indicators .active {
   background-color: whitesmoke;
 
 }
-.carousel-indicators li {
+.carousel-indicators  {
   border-radius: 50%;
 height: 25px !important;
 width: 25px !important;
-}
+} */
 .carousel-indicators {
 bottom: -3rem;
-
-
 }
 
 .carousel-item >h6{
