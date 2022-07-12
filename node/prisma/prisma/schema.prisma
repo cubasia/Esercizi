@@ -1,0 +1,29 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+model Clients {
+  Clientid         Int      @id(map: "PK_Clients") @default(autoincrement())
+  ShortDescription String   @db.NVarChar(50)
+  LongDescription  String?  @db.NVarChar(50)
+  Orders           Orders[]
+}
+
+model Orders {
+  Orderid  String    @id(map: "PK_Orders") @db.UniqueIdentifier
+  clientid Int?
+  giorno   DateTime? @db.Date
+  Aofid    Int       @default(autoincrement())
+  Clients  Clients?  @relation(fields: [clientid], references: [Clientid], onDelete: NoAction, onUpdate: NoAction, map: "FK_Orders_Clients")
+}
+
+model Products {
+  ProductId        Int     @id(map: "PK_Products") @default(autoincrement())
+  ShortDescription String? @db.NVarChar(50)
+  LongDescription  String? @db.NVarChar(50)
+}
