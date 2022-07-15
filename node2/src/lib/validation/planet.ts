@@ -1,10 +1,16 @@
-import { Static, Type } from "@sinclair/typebox"
+import { Static, TSchema, TString, Type } from "@sinclair/typebox"
+export const DateKind = Symbol("DateKind");
+export interface TDate extends TSchema { type: "string" ; $static: Date; kind: typeof DateKind }
+export const TypeDate = Type.String({ format: "date-time" }) as TString | TDate;
 
 export const planetSchema = Type.Object({
     name: Type.String(),
     desc: Type.Optional(Type.String()),
-    diameter: Type.Integer()
+    diameter: Type.Integer(),
+    updateDate: Type.Optional(TypeDate),
 },{additionalProperties: false}
 )
 
+
 export type PlanetData = Static<typeof planetSchema>
+
