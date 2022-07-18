@@ -12,7 +12,15 @@ addFormats(validator.ajv, ["date-time"])
 export const validate = validator.validate
 
 export const validatationErrorMiddleware:ErrorRequestHandler = (error, request, response, next) => { 
-
+   
+    if (error instanceof ValidationError) {
+        response.status(422).send({
+            error: error.validationErrors
+        })
+        next()
+    } else { 
+        next(error)
+    }
 }
 
 export * from "./planet"

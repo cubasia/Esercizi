@@ -3,14 +3,12 @@ export const DateKind = Symbol("DateKind");
 export interface TDate extends TSchema { type: "string" ; $static: Date; kind: typeof DateKind }
 export const TypeDate = Type.String({ format: "date-time" }) as TString | TDate;
 
+//updateDate: Type.Optional(TypeDate), // gestione di un campo data
 export const planetSchema = Type.Object({
     name: Type.String(),
-    desc: Type.Optional(Type.String()),
+    description: Type.Optional(Type.String()),
     diameter: Type.Integer(),
-    updateDate: Type.Optional(TypeDate),
-},{additionalProperties: false}
-)
-
+    moons: Type.Integer(),
+},{additionalProperties: false})
 
 export type PlanetData = Static<typeof planetSchema>
-
