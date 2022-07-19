@@ -3,11 +3,16 @@ import "express-async-errors";
 
 import { validatationErrorMiddleware } from "./lib/middleware/validation";
 import planetRoutes from "./routes/planets"
-import { intCorsMiddleware} from "./lib/middleware/cors"
-//** COSTANTI*/
-
+import { intCorsMiddleware } from "./lib/middleware/cors"
+import { initSessionMiddleware } from "./lib/middleware/session"
+import { passport } from "./lib/middleware/passport"
 
 const app = express();
+
+// *** LISTA MIDDLEWARE
+app.use(initSessionMiddleware());
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(express.json());
 app.use(intCorsMiddleware());
 app.use("/planets",planetRoutes)

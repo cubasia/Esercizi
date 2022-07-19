@@ -1,25 +1,25 @@
 
 import passport from "passport";
 import passportGitHub2 from "passport-github2"
-
+import config from "../../config";
 const githubStrategy = new passportGitHub2.Strategy(
-    {
-        clientID: "",
-        clientSecret: "",
-        callbackURL: ""
-    },
-    function (
-        accesToken: string,
-        refreshToken: string,
-        profile: { [key: string]: string },
-        done: (error: null, user: Express.User) => void
-    ) {
-        const user: Express.User = {
-            username:profile.username,
-        }
+  {
+    clientID: config.CLIENT_ID,
+    clientSecret: config.CLIENT_SECRET,
+    callbackURL: config.CALLBACK_URL,
+  },
+  function (
+    accesToken: string,
+    refreshToken: string,
+    profile: { [key: string]: string },
+    done: (error: null, user: Express.User) => void
+  ) {
+    const user: Express.User = {
+      username: profile.username,
+    };
 
-        done(null, user)
-    }
+    done(null, user);
+  }
 );
 
 passport.use(githubStrategy)
