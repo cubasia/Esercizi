@@ -235,14 +235,28 @@ test("Valid Request", async () => {
 }) //End Describe
 //********************************************************************** */
 describe("POST /planets:id/photo", () => {
-  test("Valid Request with PNG file upload", async () => {
-    await request
-      .post("/planets/5/photo")
-      .attach("photo","text-fixtures/photo/lorem.png")
-      .expect(201)
-      .expect("Access-Control-Allow-Origin", "http://localhost:8081");
-  });
+//   test("Valid Request with PNG file upload", async () => {
+//     await request
+//       .post("/planets/5/photo")
+//       .attach("photo","text-fixtures/photo/lorem.png")
+//       .expect(201)
+//       .expect("Access-Control-Allow-Origin", "http://localhost:8081");
+//   });
 
+  test("Invalid Request", async () => { 
+    //@ts-ignore
+    prismaMock.planet.update.mockRejectedValue(new Error("Invalid Request"));
+    const response = await request
+      .post("/planets/401/photo")
+      .attach("photo", "text-fixtures/photo/lorem.png")
+      .expect(404)
+      .expect("Content-Type", "text/html; charset=utf-8");
+
+    expect(response.text).toContain("Cannot POST /planets/401/photo");
+
+  })  
+  
+  
 test("Invalid Request", async () => {
   
  const response = await request
