@@ -235,6 +235,14 @@ test("Valid Request", async () => {
 }) //End Describe
 //********************************************************************** */
 describe("POST /planets:id/photo", () => {
+  test("Valid Request with PNG file upload", async () => {
+    await request
+      .post("/planets/5/photo")
+      .attach("photo","text-fixtures/photo/lorem.png")
+      .expect(201)
+      .expect("Access-Control-Allow-Origin", "http://localhost:8081");
+  });
+
 test("Invalid Request", async () => {
   
  const response = await request
@@ -255,13 +263,5 @@ test("Invalid Request with no file upload", async () => {
     
   expect(response.text).toContain("No photo file uploaded.");
 })
-// test("Valid Request", async () => {
-  
-//  const response = await request
-//    .post("/planets/5/photo")
-//    .expect(201)
-//    .expect("Access-Control-Allow-Origin", "http://localhost:8081");
-    
-//   expect(response.text).toEqual(``);
-// })
+
 }) //End Describe
