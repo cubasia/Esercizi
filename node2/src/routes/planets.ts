@@ -1,5 +1,5 @@
 import express, { Router } from 'express'
-
+import prisma from "../lib/prisma/client";
 import {
   validate,
   planetSchema,
@@ -7,7 +7,8 @@ import {
 } from "../lib/middleware/validation";
 import { initMulterMiddleware } from "../lib/middleware/multer";
 
-import prisma from "../lib/prisma/client";
+import { checkAuthorization } from '../lib/middleware/passport';
+
 
 const upload = initMulterMiddleware();
 
@@ -17,7 +18,9 @@ const router = Router();
 
 router.get("/", async (request, response) => {
   const planets = await prisma.planet.findMany();
-  response.status(201).json(planets);
+  
+   response.status(201).json(planets);
+  
 });
 router.get("/:id(\\d+)", async (request, response, next) => {
   const planetId = Number(request.params.id);
@@ -33,6 +36,7 @@ router.get("/:id(\\d+)", async (request, response, next) => {
 });
 router.put(
   "/:id(\\d+)",
+  checkAuthorization,
   validate({ body: planetSchema }),
   async (request, response, next) => {
     const planetData: PlanetData = request.body;
@@ -49,21 +53,25 @@ router.put(
     }
   }
 );
-router.delete("/:id(\\d+)", async (request, response, next) => {
-  const planetId = Number(request.params.id);
-  try {
-    await prisma.planet.delete({
-      where: { id: planetId },
-    });
-    response.status(204).end();
-  } catch (error) {
-    response.status(404);
-    next(`Cannot DELETE /planets/${planetId}`);
+router.delete(
+  "/:id(\\d+)",
+  checkAuthorization,
+  async (request, response, next) => {
+    const planetId = Number(request.params.id);
+    try {
+      await prisma.planet.delete({
+        where: { id: planetId },
+      });
+      response.status(204).end();
+    } catch (error) {
+      response.status(404);
+      next(`Cannot DELETE /planets/${planetId}`);
+    }
   }
-});
+);
 
 router.post(
-  "/",
+  "/",checkAuthorization,
   validate({ body: planetSchema }),
   async (request, response) => {
     //router.post("/planets", async (request, response) => {
@@ -90,6 +98,7 @@ router.post(
 
 router.post(
   "/:id(\\d+)/photo",
+  checkAuthorization,
   upload.single("photo"), //photo è il nome del campo della form
   async (request, response, next) => {
     //console.log("request file", request.file);
@@ -100,19 +109,17 @@ router.post(
     }
     const planetId = Number(request.params.id);
     const photoFilename = request.file.originalname;
-    
+
     try {
-       await prisma.planet.update({
-         where: { id: planetId },
-         data: { photoFilename },
-       });
+      await prisma.planet.update({
+        where: { id: planetId },
+        data: { photoFilename },
+      });
+    } catch (err) {
+      response.status(404);
+      return next(`Cannot POST /planets/${planetId}/photo`);
     }
-    catch (err) {
-        response.status(404);
-        return next(`Cannot POST /planets/${planetId}/photo`);
-      
-    }
-  
+
     response.status(201).json({ photoFilename });
   }
 );

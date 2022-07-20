@@ -8,6 +8,9 @@
 </head>
 
 <body>
+    <p>
+        <a href="http://localhost:8080/auth/login?redirectTo=http://localhost:8081/add">Login</a>
+    </p>
     <form action="http://localhost:8080/planets" id="form-add">
         <label>
             <strong>Name:</strong>
@@ -37,7 +40,8 @@
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: formDataJsonString
+                body: formDataJsonString,
+                credentials: "include"
             })
         
         

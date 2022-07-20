@@ -1,12 +1,16 @@
 
 import passport from "passport";
 import passportGitHub2 from "passport-github2"
+import { RequestHandler } from "express";
+
 import config from "../../config";
+// console.log(config);
 const githubStrategy = new passportGitHub2.Strategy(
   {
     clientID: config.CLIENT_ID,
     clientSecret: config.CLIENT_SECRET,
     callbackURL: config.CALLBACK_URL,
+    scope: ["user.read"],
   },
   function (
     accesToken: string,
@@ -26,4 +30,11 @@ passport.use(githubStrategy)
 passport.serializeUser<Express.User>((user,done)=> done(null, user))
 passport.deserializeUser<Express.User>((user, done) => done(null, user))
 
-export {passport}
+const checkAuthorization: RequestHandler = (req, res, next) => { 
+  if (req.isAuthenticated()) { 
+    return next()
+  }
+
+  res.status(401).end()
+}
+export {passport,checkAuthorization}
