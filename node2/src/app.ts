@@ -19,7 +19,11 @@ app.use(passport.session());
 app.use(express.json());
 app.use(intCorsMiddleware());
 app.use("/planets",planetRoutes)
-app.use("/auth", authRoutes);
+app.use(authRoutes);
+
+// app.use("/auth", authRoutes);
+
+
 
 
 

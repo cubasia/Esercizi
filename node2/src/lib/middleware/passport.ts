@@ -10,13 +10,13 @@ const githubStrategy = new passportGitHub2.Strategy(
     clientID: config.CLIENT_ID,
     clientSecret: config.CLIENT_SECRET,
     callbackURL: config.CALLBACK_URL,
-    scope: ["user.read"],
+  
   },
   function (
     accesToken: string,
     refreshToken: string,
     profile: { [key: string]: string },
-    done: (error: null, user: Express.User) => void
+    done: (error: null, user: Express.User) =>  void
   ) {
     const user: Express.User = {
       username: profile.username,

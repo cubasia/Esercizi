@@ -21,6 +21,8 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   unsubscribe$: Subject<void> = new Subject<void>();
 
+    
+
   listTipi = [
     'education',
     'recreational',
@@ -101,6 +103,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   salvaechiama(item: Attivita) {
     this.myService.salvaattivita(item);
     this.router.navigateByUrl('list');
+
   }
   ngOnInit(): void {
     let sub = this.profileForm

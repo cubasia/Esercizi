@@ -17,7 +17,7 @@ router.get("/login", (req, res, next) => {
 
   req.session.redirectTo = req.query.redirectTo;
 
-  res.redirect("/auth/github/login");
+  res.redirect("/github/login");
 });
 
 router.get(
@@ -28,16 +28,17 @@ router.get(
 );
 
 router.get(
-  "/github/callback",
+  "/login/github/authorized",
   //@ts-ignore
   passport.authenticate("github", {
-    failureRedirect: "/auth/login",
+    failureRedirect: "/login",
     keepSessionInfo: true,
+    scope: ["user:email"],
   }),
   (req, res) => {
-    if (typeof req.query.redirectTo !== "string") {
-      return res.status(500).end();
-    }
+    // if (typeof req.query.redirectTo !== "string") {
+    //   return res.status(500).end();
+    // }
 
     res.redirect(req.session.redirectTo as string);
   }
